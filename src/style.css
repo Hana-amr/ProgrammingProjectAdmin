@@ -45,6 +45,40 @@ h1 {
   padding: 2em;
 }
 
+#back-btn{
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+#btn-home{
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+#back-btn:hover {
+  color: #646cff;
+}
+
+#student-titel{
+  position: absolute;
+  top: 1em;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+#search-student{
+  position: absolute;
+  top: 3em;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
 .titel{
   margin: 0;
   text-decoration: #000;
