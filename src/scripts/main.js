@@ -8,3 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+import { renderAccountAanmakenHome } from './accountAanmakenHome'
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btnAanmaken = document.getElementById('btn-account-aanmaken');
+   if(btnAanmaken){
+    btnAanmaken.addEventListener('click', () => {
+      renderAccountAanmakenHome();
+    } );
+  }
+  });
