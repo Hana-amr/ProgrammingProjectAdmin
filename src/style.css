@@ -65,18 +65,34 @@ h1 {
   color: #646cff;
 }
 
+#bedrijven-titel{
+    position: absolute;
+  top: 0em;
+  font-size: 3rem;
+  text-decoration: none;
+}
+
+.search-bedrijf{
+position: absolute;
+  top: 6em;
+  font-size: 1.2em;
+  text-decoration: none;
+  background-color: #aaaaaa;
+}
+
 #student-titel{
   position: absolute;
-  top: 1em;
-  font-size: 1em;
+  top: 0em;
+  font-size: 3em;
   text-decoration: none;
 }
 
 #search-student{
   position: absolute;
-  top: 3em;
+  top: 6em;
   font-size: 1.2em;
   text-decoration: none;
+  background-color: #aaaaaa;
 }
 
 .titel{
@@ -85,6 +101,39 @@ h1 {
   font-size: 2rem;
   text-align: center;
   margin-bottom: 500px;
+}
+
+#studenten-tiles{
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 1em; 
+  margin-top: 2em;
+}
+
+#bedrijven-tiles{
+    display: flex; 
+  flex-wrap: wrap; 
+  gap: 1em; 
+  margin-top: 2em;
+}
+
+.bedrijf-tile{
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5em;
+  color: #000;
+}
+
+.student-tile {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5em;
+  color: #000;
+
 }
 
 .logo {
