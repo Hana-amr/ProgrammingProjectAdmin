@@ -3,6 +3,7 @@ export function renderAccountAanmakenHome() {
     <h1>Account Aanmaken</h1>
     <button id="btn-student">Student</button>
     <button id="btn-bedrijf">Bedrijf</button>
+    <button id="backhome-btn"> < </button>
   `;
 
   document.getElementById('btn-student').addEventListener('click', () => {
@@ -13,7 +14,8 @@ export function renderAccountAanmakenHome() {
     window.location.href = 'bedrijf.html'; 
   });
 
-  // document.getElementById('back-btn').addEventListener('click', () => {
-  //   location.reload(); 
-  // });
+
+   document.getElementById('backhome-btn').addEventListener('click', () => {
+     location.reload(); 
+   });
 }
