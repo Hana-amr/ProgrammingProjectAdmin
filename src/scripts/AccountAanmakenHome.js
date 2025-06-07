@@ -1,9 +1,9 @@
 export function renderAccountAanmakenHome() {
    document.getElementById('app').innerHTML = `
-    <h1>Account Aanmaken</h1>
+    <h1 class="titel">Account Aanmaken</h1>
     <button id="btn-student">Student</button>
     <button id="btn-bedrijf">Bedrijf</button>
-    <button id="backhome-btn"> < </button>
+    <button id="backhome-btn"> ← </button>
   `;
 
   document.getElementById('btn-student').addEventListener('click', () => {

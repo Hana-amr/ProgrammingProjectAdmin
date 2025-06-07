@@ -4,17 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Registratieformulier</title>
-    <link rel="stylesheet" type="text/css" href="src/style.css">
+    <link rel="stylesheet" type="text/css" href="src/styleStudentenAanmaken.css">
 </head>
 <body>
-    <header id="AccountAaanmakenTitel"> 
-    <h2 class="titel">Administrator</h2>
+    <header id="AccountAanmakenTitel"> 
+    <button id="back-btn">←</button>
+    <h2 class="titel">Account Registreren</h2>
+    <button id="backHome-btn">HOME</button>
 </header>
+
 <!--Studentenformulier-->
 <section class="registratie" id="registreerEenStudent">
+    <div class="registratie-container">
+
+        <!--Profiel foto-->
+        <div class="foto-upload-container"> 
+        <div class="foto-upload" onclick="document.getElementById('foto').click();">
+        <img id="foto-label" src="images/Profile icon.jpg" alt="standaard foto"/>
+        <img id="foto-preview" alt="fotovoorbeeld"/>
+    </div>
+        <button id="delete-foto-btn" style="display: none;" onclick="deleteFoto()">Foto verwijderen</button>
+    </div>
+         <input type="file" id="foto" accept="image/*" style="display: none" onchange="previewFoto(event)">
+     
+<!--Formulier studenten-->
 <div class="registratie-form">
     <form action="">
-        <h3>Onderwijsgegevens</h3>
+  <h3>Onderwijsgegevens</h3>
   <label for="school">Naam school:</label><br>
   <input type="text" id="school" name="school" required><br>
 
@@ -44,7 +60,8 @@
   <button type="submit" class="submit">Registreren</button>
 </form>
 </div>
+</div>
 </section>
-
+    <script src="src/scripts/AccountAanmakenStudenten.js"></script>
 </body>
 </html>

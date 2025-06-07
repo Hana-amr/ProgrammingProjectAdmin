@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-import { renderAccountAanmakenHome } from './accountAanmakenHome'
+import { renderAccountAanmakenHome } from './AccountAanmakenHome'
 
 document.addEventListener('DOMContentLoaded', () => {
   const btnAanmaken = document.getElementById('btn-account-aanmaken');
