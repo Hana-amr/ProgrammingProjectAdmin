@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Registratieformulier</title>
-    <link rel="stylesheet" type="text/css" href="src/styleStudentenEnBedrijvenAanmaken.css">
+    <link rel="stylesheet" type="text/css" href="src/style.css">
 </head>
 
 <body>
@@ -30,8 +30,10 @@
             <input type="file" id="foto" accept="image/*" style="display: none" onchange="previewFoto(event)">
 
             <!--Formulier studenten-->
-            <div class="registratie-form">
-                <form action="">
+        <div class="registratie-form">
+            <div class="beheer-container">
+                <form class="beheer-form">
+
                     <h3>Onderwijsgegevens</h3>
                     <label for="school">Naam school:</label><br>
                     <input type="text" id="school" name="school" required><br>

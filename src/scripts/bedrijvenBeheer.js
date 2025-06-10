@@ -1,3 +1,4 @@
+import { renderAccountBeherenHome } from "./accountBeherenHome";
 import { renderBedrijf } from "./BedrijfBeheren";
 
 export function renderBedrijvenBeheer() {
@@ -23,7 +24,7 @@ export function renderBedrijvenBeheer() {
   `;
 
        document.getElementById('back-btn').addEventListener('click', () => {
-    location.reload();
+    renderAccountBeherenHome();
   });
 
   document.getElementById('btn-home').addEventListener('click', () => {
