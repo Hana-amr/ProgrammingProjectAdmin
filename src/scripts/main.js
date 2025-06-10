@@ -19,3 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } );
   }
   });
+
+ document.getElementById('btn-logout').addEventListener('click', () => {
+    window.location.href = 'Login.html'; 
+   });
