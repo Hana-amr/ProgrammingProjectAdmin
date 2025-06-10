@@ -1,9 +1,8 @@
+import { renderBedrijvenBeheer } from "./bedrijvenBeheer"
+
 export function renderBedrijf(){
     document.getElementById('app').innerHTML = `
-    <head>
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/styleStudentenEnBedrijvenAanmaken.css">
-    </head>
+
   <header>
     <button id="back-btn">←</button>
     <h2 class="titel">Account Beheren</h2>
@@ -64,4 +63,11 @@ export function renderBedrijf(){
       </div>
     </div>
   </section>`
+
+  document.getElementById('backHome-btn').addEventListener('click', () => {
+    window.location.href = 'index.html'; 
+  });
+  document.getElementById('back-btn').addEventListener('click', () => {
+    renderBedrijvenBeheer();
+  });
 };

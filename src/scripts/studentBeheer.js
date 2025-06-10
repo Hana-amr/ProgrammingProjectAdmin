@@ -1,16 +1,7 @@
+import { renderStudentenBeheer } from './studentenBeheer.js';
+
 export function renderStudent(){
 document.getElementById('app').innerHTML = `
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Registratieformulier</title>
-    <link rel="stylesheet" type="text/css" href="src/styleStudentenEnBedrijvenAanmaken.css">
-</head>
-
-<body>
     <header id="AccountAanmakenTitel">
         <button id="back-btn">←</button>
         <h2 class="titel">Student Beheren</h2>
@@ -66,12 +57,11 @@ document.getElementById('app').innerHTML = `
             </div>
         </div>
     </section>
-
-</body>
-
-</html>
 `
 document.getElementById('back-btn').addEventListener('click', () => {
   renderStudentenBeheer();
 })
+document.getElementById('backHome-btn').addEventListener('click', () => {
+  location.href = 'index.html';
+});
 };
