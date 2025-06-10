@@ -1,3 +1,5 @@
+import { renderBedrijf } from "./BedrijfBeheren";
+
 export function renderBedrijvenBeheer() {
 // Voorbeeld data voor bedrijven
   const bedrijven =[
@@ -29,18 +31,30 @@ export function renderBedrijvenBeheer() {
   });
 
   //logica voor een tile van een bedrijf
-function renderBedrijvenTiles(bedrijven) {
+function renderBedrijvenTiles(bedrijven, idx) {
     const tilesHtml = bedrijven.map(bedrijf => `
-      <div class="bedrijf-tile">
+      <div class="bedrijf-tile" data-bedrijf-index="${idx}">
         <h3>${bedrijf.name}</h3>
         <p>${bedrijf.email}</p>
         </div>
         `).join('');
         document.getElementById('bedrijven-tiles').innerHTML = tilesHtml;
+        addTileClickListeners(bedrijven);
+        
     }
 
     //initele render van de bedrijven tiles
     renderBedrijvenTiles(bedrijven);
+
+    function addTileClickListeners(bedrijven) {
+      document.querySelectorAll('.bedrijf-tile').forEach(tile => {
+        tile.addEventListener('click', () => {
+          const idx = tile.getAttribute('data-bedrijf-index');
+          const bedrijf = bedrijven[idx];
+          renderBedrijf(bedrijf, idx);
+        });
+      });
+    }
 
     //zoekfunctie voor bedrijven
     document.getElementById('search-bedrijf').addEventListener('input', (event) => {

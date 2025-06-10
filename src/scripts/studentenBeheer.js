@@ -1,3 +1,6 @@
+import { renderAccountBeherenHome } from "./accountBeherenHome";
+import { renderStudent } from "./studentBeheer";
+
 export function renderStudentenBeheer() {
   // Voorbeeld data voor studenten
   const students = [
@@ -12,13 +15,14 @@ export function renderStudentenBeheer() {
 
   //logica voor een tile van een student
   function renderStudentTiles(students) {
-    const tilesHtml = students.map(student => `
-      <div class="student-tile">
+    const tilesHtml = students.map((student, idx) => `
+      <div class="student-tile" data-student-index="${idx}">
         <h3>${student.name}</h3>
         <p>${student.email}</p>
       </div>
     `).join('');
     document.getElementById('studenten-tiles').innerHTML = tilesHtml;
+    addTileClickListeners(students);
   }
 
   document.getElementById('app').innerHTML = `
@@ -30,15 +34,25 @@ export function renderStudentenBeheer() {
   `;
 
   document.getElementById('back-btn').addEventListener('click', () => {
-    location.reload();
+    renderAccountBeherenHome();
   });
 
   document.getElementById('btn-home').addEventListener('click', () => {
-    location.href = '/';
+    location.href = 'index.html';
   });
 
   //initiele render van de student tiles
   renderStudentTiles(students);
+
+  function addTileClickListeners(students) {
+    document.querySelectorAll('.student-tile').forEach(tile => {
+      tile.addEventListener('click', () => {
+        const idx = tile.getAttribute('data-student-index');
+        const student = students[idx];
+        renderStudent(student, idx);
+      });
+    });
+  }
 
   //zoekfunctie voor studenten
   document.getElementById('search-student').addEventListener('input', (event) => {
