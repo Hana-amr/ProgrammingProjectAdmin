@@ -2,16 +2,15 @@ import { renderBedrijvenBeheer } from "./bedrijvenBeheer"
 
 export function renderBedrijf(){
     document.getElementById('app').innerHTML = `
-
   <header>
     <button id="back-btn">←</button>
-    <h2 class="titel">Account Beheren</h2>
+    <h2 class="titel">Bedrijf Beheren</h2>
     <button id="backHome-btn">HOME</button>
   </header>
 
   <!--Bedrijvenformulier-->
-  <section class="registratie">
-    <div class="registratie-container">
+  <section class="beheer" id="beheer-bedrijven">
+    <div class="beheer-container">
       <!--logo-->
       <div class="foto-section">
         <div class="foto-upload" onclick="document.getElementById('foto').click();">
@@ -25,8 +24,8 @@ export function renderBedrijf(){
 
       <!--Formulier bedrijven-->
 
-      <div class="registratie-form">
-        <form action="">
+      <div class="registratie-container">
+      <form class="beheer-form">
           <label for="Bedrijfsnaam">Bedrijfsnaam:</label><br>
           <input type="text" id="adres" name="adres" required><br>
 

@@ -2,15 +2,15 @@ import { renderStudentenBeheer } from './studentenBeheer.js';
 
 export function renderStudent(){
 document.getElementById('app').innerHTML = `
-    <header id="AccountAanmakenTitel">
+    <header id="StudentBeherenHeader">
         <button id="back-btn">←</button>
         <h2 class="titel">Student Beheren</h2>
         <button id="backHome-btn">HOME</button>
     </header>
 
     <!--Studentenformulier-->
-    <section class="registratie" id="registreerEenStudent">
-        <div class="registratie-container">
+    <section class="beheer" id="beheer-studenten">
+        <div class="beheer-container">
 
             <!--Profiel foto-->
             <div class="foto-upload-container">
@@ -23,8 +23,8 @@ document.getElementById('app').innerHTML = `
             <input type="file" id="foto" accept="image/*" style="display: none" onchange="previewFoto(event)">
 
             <!--Formulier studenten-->
-            <div class="registratie-form">
-                <form action="">
+            <div class="registratie-container">
+            <form class="beheer-form">
                     <h3>Onderwijsgegevens</h3>
                     <label for="school">Naam school:</label><br>
                     <input type="text" id="school" name="school" required><br>
