@@ -1,0 +1,137 @@
+/*Student en bedrijf registreren*/
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: white;
+}
+
+header {
+  background-color: #A3EEFF;
+  padding: 15px;
+  position: relative;
+}
+
+.titel {
+  margin: 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+#back-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#backHome-btn{
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  font-size: 20px;
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+}
+
+.registratie-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 1000px;
+}
+
+.foto-upload-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.foto-upload {
+   width: 120px;
+    height: 120px;
+    background-color: darkgrey;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    line-height: 120px;
+    font-weight: bold;
+    color: white;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.foto-upload img {
+     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+#foto-preview {
+  display: none;
+}
+
+#delete-foto-btn{
+   display: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #A3EEFF;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.foto-upload input[type="file"] {
+  display: none;
+}
+
+.registratie-form {
+  flex: 1;
+}
+
+.registratie-form h3 {
+  margin-top: 1.5rem;
+  margin-bottom:0.5rem;
+  color: #333;
+}
+
+.registratie-form label {
+  font-weight: initial;
+}
+
+.registratie-form input[type="text"],
+.registratie-form input[type="email"],
+.registratie-form input[type="tel"],
+.registratie-form input[type="password"] {
+  width: 80%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+
+button.submit {
+  background-color: #A3EEFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.submit:hover{
+background-color: #333;
+}
