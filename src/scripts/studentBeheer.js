@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+import { renderStudentenBeheer } from './studentenBeheer.js';
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Registratieformulier</title>
-    <link rel="stylesheet" type="text/css" href="src/style.css">
-</head>
-
-<body>
-    <header id="AccountAanmakenTitel">
+export function renderStudent(student) {
+  document.getElementById('app').innerHTML = `
+    <header id="StudentBeherenHeader">
         <button id="back-btn">←</button>
-        <h2 class="titel">Account Registreren</h2>
+        <h2 class="titel">Student Beheren</h2>
         <button id="backHome-btn">HOME</button>
     </header>
 
     <!--Studentenformulier-->
-    <section class="registratie" id="registreerEenStudent">
-        <div class="registratie-container">
+    <section class="beheer" id="beheer-studenten">
+        <div class="beheer-container">
 
             <!--Profiel foto-->
             <div class="foto-upload-container">
@@ -30,25 +23,26 @@
             <input type="file" id="foto" accept="image/*" style="display: none" onchange="previewFoto(event)">
 
             <!--Formulier studenten-->
-            <div class="registratie-form">
-                <form action="">
+            <div class="registratie-container">
+            <form class="beheer-form">
+
                     <h3>Studiekeuze</h3>
                     <label for="richting">Richting:</label><br>
-                    <input type="text" id="richting" name="richting" required><br>
+                    <input type="text" id="richting" name="richting" value="${student?.richting || ''}"><br>
 
                     <h3>Persoonsinformatie</h3>
                     <label for="voornaam">Voornaam:</label><br>
-                    <input type="text" id="voornaam" name="voornaam" required><br>
+                    <input type="text" id="voornaam" name="voornaam" value="${student?.voornaam || ''}"><br>
 
                     <label for="achternaam">Achternaam:</label><br>
-                    <input type="text" id="achternaam" name="achternaam" required><br>
+                    <input type="text" id="achternaam" name="achternaam" value="${student?.achternaam || ''}"><br>
 
                     <label for="telefoon">Telefoonnummer:</label><br>
-                    <input type="tel" id="telefoon" name="telefoon" required><br>
+                    <input type="tel" id="telefoon" name="telefoon" value="${student?.telefoon || ''}"><br>
 
                     <h3>Account gegevens</h3>
                     <label for="email">E-mailadres:</label><br>
-                    <input type="email" id="email" name="email" required><br>
+                    <input type="email" id="email" name="email" value="${student?.email || ''}"><br>
 
                     <label for="wachtwoord">Wachtwoord:</label><br>
                     <input type="password" id="wachtwoord" name="wachtwoord" required><br>
@@ -56,13 +50,16 @@
                     <label for="herhaalwachtwoord">Herhaal wachtwoord:</label><br>
                     <input type="password" id="herhaalwachtwoord" name="herhaalwachtwoord" required><br>
 
-                    <button type="submit" class="submit">Registreren</button>
+                    <button type="submit" class="submit">Pas aan</button>
                 </form>
             </div>
-
         </div>
     </section>
-    <script src="src/scripts/AccountAanmakenStudentenEnBedrijven.js"></script>
-</body>
-
-</html>
+  `;
+  document.getElementById('back-btn').addEventListener('click', () => {
+    renderStudentenBeheer();
+  });
+  document.getElementById('backHome-btn').addEventListener('click', () => {
+    location.href = 'index.html';
+  });
+}

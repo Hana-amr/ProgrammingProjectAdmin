@@ -14,9 +14,9 @@ export function renderAccountBeherenHome() {
     renderStudentenBeheer();
   });
 
-  document.getElementById('btn-bedrijven-beheer').addEventListener('click', () => (
-    renderBedrijvenBeheer()
-  ));
+  document.getElementById('btn-bedrijven-beheer').addEventListener('click', () => {
+    renderBedrijvenBeheer();
+  });
 
   // Terug-knop handler
   document.getElementById('back-btn').addEventListener('click', () => {
