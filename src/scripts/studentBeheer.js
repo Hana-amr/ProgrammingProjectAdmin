@@ -1,7 +1,7 @@
 import { renderStudentenBeheer } from './studentenBeheer.js';
 
-export function renderStudent(){
-document.getElementById('app').innerHTML = `
+export function renderStudent(student) {
+  document.getElementById('app').innerHTML = `
     <header id="StudentBeherenHeader">
         <button id="back-btn">←</button>
         <h2 class="titel">Student Beheren</h2>
@@ -25,26 +25,24 @@ document.getElementById('app').innerHTML = `
             <!--Formulier studenten-->
             <div class="registratie-container">
             <form class="beheer-form">
-                    <h3>Onderwijsgegevens</h3>
-                    <label for="school">Naam school:</label><br>
-                    <input type="text" id="school" name="school" required><br>
 
+                    <h3>Studiekeuze</h3>
                     <label for="richting">Richting:</label><br>
-                    <input type="text" id="richting" name="richting" required><br>
+                    <input type="text" id="richting" name="richting" value="${student?.richting || ''}"><br>
 
-                    <h3>Contactpersoongegevens</h3>
+                    <h3>Persoonsinformatie</h3>
                     <label for="voornaam">Voornaam:</label><br>
-                    <input type="text" id="voornaam" name="voornaam" required><br>
+                    <input type="text" id="voornaam" name="voornaam" value="${student?.voornaam || ''}"><br>
 
                     <label for="achternaam">Achternaam:</label><br>
-                    <input type="text" id="achternaam" name="achternaam" required><br>
+                    <input type="text" id="achternaam" name="achternaam" value="${student?.achternaam || ''}"><br>
 
                     <label for="telefoon">Telefoonnummer:</label><br>
-                    <input type="tel" id="telefoon" name="telefoon" required><br>
+                    <input type="tel" id="telefoon" name="telefoon" value="${student?.telefoon || ''}"><br>
 
-                    <h3>Accountgegevens</h3>
+                    <h3>Account gegevens</h3>
                     <label for="email">E-mailadres:</label><br>
-                    <input type="email" id="email" name="email" required><br>
+                    <input type="email" id="email" name="email" value="${student?.email || ''}"><br>
 
                     <label for="wachtwoord">Wachtwoord:</label><br>
                     <input type="password" id="wachtwoord" name="wachtwoord" required><br>
@@ -57,11 +55,11 @@ document.getElementById('app').innerHTML = `
             </div>
         </div>
     </section>
-`
-document.getElementById('back-btn').addEventListener('click', () => {
-  renderStudentenBeheer();
-})
-document.getElementById('backHome-btn').addEventListener('click', () => {
-  location.href = 'index.html';
-});
-};
+  `;
+  document.getElementById('back-btn').addEventListener('click', () => {
+    renderStudentenBeheer();
+  });
+  document.getElementById('backHome-btn').addEventListener('click', () => {
+    location.href = 'index.html';
+  });
+}

@@ -1,6 +1,6 @@
 import { renderBedrijvenBeheer } from "./bedrijvenBeheer"
 
-export function renderBedrijf(){
+export function renderBedrijf(bedrijf){
     document.getElementById('app').innerHTML = `
   <header>
     <button id="back-btn">←</button>
@@ -21,43 +21,37 @@ export function renderBedrijf(){
         <button id="delete-foto-btn" onclick="deleteFoto()">Logo verwijderen</button>
       </div>
 
-
       <!--Formulier bedrijven-->
-
       <div class="registratie-container">
       <form class="beheer-form">
-          <label for="Bedrijfsnaam">Bedrijfsnaam:</label><br>
-          <input type="text" id="adres" name="adres" required><br>
-
-          <label for="Vertegenwoordiger: ">Vertegenwoordiger:</label><br>
-          <input type="text" id="Vertegenwoordiger" name="Vertegenwoordiger"><br>
-
-
           <h3>Bedrijfsgegevens</h3>
+          <label for="Bedrijfsnaam">Bedrijfsnaam:</label><br>
+          <input type="text" id="Bedrijfsnaam" name="Bedrijfsnaam" value="${bedrijf?.naam || ''}"><br>
+
           <label for="adres">Adres:</label><br>
-          <input type="text" id="adres" name="adres" required><br>
+          <input type="text" id="adres" name="adres" value="${bedrijf?.adres || ''}"><br>
 
-          <label for="ondernemingsnummer">Ondernemingsnummer:</label><br>
-          <input type="text" id="ondernemingsnummer" name="ondernemingsnummer" required><br>
-
-          <h3>Contactpersoon gegevens</h3>
+          <h3>Persoonsinformatie</h3>
           <label for="voornaam">Voornaam:</label><br>
-          <input type="text" id="voornaam" name="voornaam" required><br>
+          <input type="text" id="voornaam" name="voornaam" value="${bedrijf?.voornaam || ''}"><br>
 
           <label for="achternaam">Achternaam:</label><br>
-          <input type="text" id="achternaam" name="achternaam" required><br>
+          <input type="text" id="achternaam" name="achternaam" value="${bedrijf?.achternaam || ''}"><br>
 
           <label for="telefoon">Telefoonnummer:</label><br>
-          <input type="tel" id="telefoon" name="telefoon" required><br>
+          <input type="tel" id="telefoon" name="telefoon" value="${bedrijf?.telefoon || ''}"><br>
 
           <h3>Account gegevens</h3>
           <label for="email">E-mailadres:</label><br>
-          <input type="email" id="email" name="email" required><br>
+          <input type="email" id="email" name="email" value="${bedrijf?.email || ''}"><br>
 
           <label for="wachtwoord">Wachtwoord:</label><br>
           <input type="password" id="wachtwoord" name="wachtwoord" required><br>
 
-          <button type="submit" class="submit">Registreren</button>
+          <label for="herhaalwachtwoord">Herhaal wachtwoord:</label><br>
+          <input type="password" id="herhaalwachtwoord" name="herhaalwachtwoord" required><br>
+
+          <button type="submit" class="submit">Pas aan</button>
         </form>
       </div>
     </div>
