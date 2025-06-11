@@ -30,18 +30,13 @@
             <input type="file" id="foto" accept="image/*" style="display: none" onchange="previewFoto(event)">
 
             <!--Formulier studenten-->
-        <div class="registratie-form">
-            <div class="beheer-container">
-                <form class="beheer-form">
-
-                    <h3>Onderwijsgegevens</h3>
-                    <label for="school">Naam school:</label><br>
-                    <input type="text" id="school" name="school" required><br>
-
+            <div class="registratie-form">
+                <form action="">
+                    <h3>Studiekeuze</h3>
                     <label for="richting">Richting:</label><br>
                     <input type="text" id="richting" name="richting" required><br>
 
-                    <h3>Contactpersoongegevens</h3>
+                    <h3>Persoonsinformatie</h3>
                     <label for="voornaam">Voornaam:</label><br>
                     <input type="text" id="voornaam" name="voornaam" required><br>
 
@@ -51,7 +46,7 @@
                     <label for="telefoon">Telefoonnummer:</label><br>
                     <input type="tel" id="telefoon" name="telefoon" required><br>
 
-                    <h3>Accountgegevens</h3>
+                    <h3>Account gegevens</h3>
                     <label for="email">E-mailadres:</label><br>
                     <input type="email" id="email" name="email" required><br>
 
@@ -64,6 +59,7 @@
                     <button type="submit" class="submit">Registreren</button>
                 </form>
             </div>
+
         </div>
     </section>
     <script src="src/scripts/AccountAanmakenStudentenEnBedrijven.js"></script>
