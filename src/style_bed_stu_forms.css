@@ -115,7 +115,8 @@ header {
 .registratie-form input[type="text"],
 .registratie-form input[type="email"],
 .registratie-form input[type="tel"],
-.registratie-form input[type="password"] {
+.registratie-form input[type="password"],
+.registratie-form input[type="adres"] {
   width: 80%;
   padding: 8px;
   margin-bottom: 15px;

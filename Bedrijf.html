@@ -24,22 +24,21 @@
           <span id="foto-label">Logo</span>
           <img id="foto-preview" alt="fotovoorbeeld" />
         </div>
-        <input type="file" id="foto" accept="image/*" style="display: none" onchange="previewFoto(event)">
-        <button id="delete-foto-btn" onclick="deleteFoto()">Logo verwijderen</button>
+        <input type="file" id="foto" accept="image/*" style="display: none">
+        <button id="delete-foto-btn">Logo verwijderen</button>
       </div>
-
 
       <!--Formulier bedrijven-->
 
    <div class="registratie-form">
-  <form action="">
+  <form id="bedrijfForm" action="">
 
     <h3>Bedrijfsgegevens</h3>
     <label for="Bedrijfsnaam">Bedrijfsnaam:</label><br>
     <input type="text" id="bedrijfsnaam" name="bedrijfsnaam" required><br>
 
     <label for="adres">Adres:</label><br>
-    <input type="text" id="adres" name="adres" required><br>
+    <input type="adres" id="adres" name="adres" required><br>
 
     <h3>Contactpersoon gegevens</h3>
     <label for="voornaam">Voornaam:</label><br>
@@ -49,25 +48,24 @@
     <input type="text" id="achternaam" name="achternaam" required><br>
 
     <label for="telefoon">Telefoonnummer:</label><br>
-    <input type="tel" id="telefoon" name="telefoon" required><br>
+    <input type="tel" id="telefoon" name="telefoon" required autocomplete="tel"><br>
 
     <h3>Account gegevens</h3>
     <label for="email">E-mailadres:</label><br>
-    <input type="email" id="email" name="email" required><br>
+    <input type="email" id="email" name="email" required autocomplete="email"><br>
 
     <label for="wachtwoord">Wachtwoord:</label><br>
-    <input type="password" id="wachtwoord" name="wachtwoord" required><br>
+    <input type="password" id="wachtwoord" name="wachtwoord" required autocomplete="new-password"><br>
 
     <label for="herhaalwachtwoord">Herhaal wachtwoord:</label><br>
-    <input type="password" id="herhaalwachtwoord" name="herhaalwachtwoord" required><br>
+    <input type="password" id="herhaalwachtwoord" name="herhaalwachtwoord" required autocomplete="new-password"><br>
 
     <button type="submit" class="submit">Registreren</button>
   </form>
       </div>
       </div>
   </section>
-  <script src="src/scripts/AccountAanmakenStudentenEnBedrijven.js"></script>
+  <script type="module" src="src/scripts/BedrijfAanmaken.js"></script>
 
 </body>
-
 </html>
