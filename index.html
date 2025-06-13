@@ -1,18 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet"  href="/src/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin - CarriereLaunch</title>
-  </head>
-  <body>
-    <div id="app">
-    <h1 class="titel">Administrator</h1>
-    <button id="btn-account-aanmaken">Accounts Aanmaken</button>
-    <button id="btn-account-beheren">Accounts Beheren</button>
-    <button id="btn-logout">Afmelden</button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/src/stylesheet/styleLogin.css">
+    <title>Admin login</title>
+</head>
+<body>
+</head>
+
+    <div class="login-container">
+        <h1>Meld je aan</h1>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="E-mail" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="password" id="password" name="password" placeholder="Wachtwoord" required>
+            </div>
+            <button type="submit">Inloggen</button>
+        </form>
+
+    <div id="errorDiv"></div>
     </div>
-    <script type="module" src="/src/scripts/main.js"></script>
-  </body>
+</body>
+<script type="module" src="/src/scripts/login.js"></script>
+
 </html>

@@ -36,11 +36,13 @@
   }
 
   document.getElementById('backHome-btn').addEventListener('click', () => {
-    window.location.href = 'index.html'; 
+    window.location.href = 'keuzeMenu.html'; 
   });
 
+
+  //oplossen later als er tijd is (low priority)
    document.getElementById('back-btn').addEventListener('click', () => {
-    window.location.href = 'index.html'; 
+    window.location.href = 'keuzeMenu.html'; 
    });
 
    
