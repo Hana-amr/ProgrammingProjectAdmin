@@ -56,6 +56,9 @@ export function renderStudent(student) {
         </div>
     </section>
   `;
+
+haalStudentOp('abc123'); // vervang dit met een echt document-ID
+
   document.getElementById('back-btn').addEventListener('click', () => {
     renderStudentenBeheer();
   });

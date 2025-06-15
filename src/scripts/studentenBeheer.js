@@ -1,53 +1,65 @@
 import { renderAccountBeherenHome } from "./accountBeherenHome";
 import { renderStudent } from "./studentBeheer";
+import { initializeApp } from "firebase/app";
+import {getFirestore, collection, query, where, getDocs, deleteDoc, doc
+} from "firebase/firestore";
+import { firebaseConfig } from "./firebase";
 
-export function renderStudentenBeheer() {
-  // Voorbeeld data voor studenten
-  const students = [
-    {
-      name: "AdamA",
-      email: "AdamA@example.com",
-      richting: "Informatica",
-      voornaam: "Adam",
-      achternaam: "A.",
-      telefoon: "0612345678"
-    },
-    {
-      name: "Abdou",
-      email: "Abdou@example.com",
-      richting: "ICT",
-      voornaam: "Abdou",
-      achternaam: "B.",
-      telefoon: "0687654321"
-    },
-    {
-      name: "Hana",
-      email: "Hana@example.com",
-      richting: "",
-      voornaam: "Hana",
-      achternaam: "C.",
-      telefoon: "0611122233"
-    },
-    {
-      name: "Kainy",
-      email: "kainy@example.com",
-      richting: "Toegepaste Informatica",
-      voornaam: "Kainy",
-      achternaam: "D.",
-      telefoon: "0622233344"
+export async function renderStudentenBeheer() {
+  
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  
+  let students = []; // <-- Maak een array aan die overal in de functie beschikbaar is
+
+  // Zoek en toon studenten
+  async function laadStudenten() {
+    const q = query(collection(db, "user"), where("role", "==", "student"));
+    const querySnapshot = await getDocs(q);
+
+    students = []; // Leeg de array voor nieuwe data
+    querySnapshot.forEach((docSnap) => {
+      const data = docSnap.data();
+      students.push({
+        id: docSnap.id,
+        name: `${data.firstname} ${data.surname}`,
+        email: data.email,
+        opleiding: data.opleiding,
+        gsm: data.gsm
+      });
+    });
+
+    renderStudentTiles(students); // Render de tiles met de opgehaalde studenten
+  }
+  
+  // Verwijder student
+  window.verwijderStudent = async function (id) {
+    if (confirm("Weet je zeker dat je deze student wil verwijderen?")) {
+      await deleteDoc(doc(db, "user", id));
+      laadStudenten();
     }
-  ];
-
+  };
+  
   //logica voor een tile van een student
-  function renderStudentTiles(students) {
-    const tilesHtml = students.map((student, idx) => `
+  function renderStudentTiles(studentsToRender) {
+    const tilesHtml = studentsToRender.map((student, idx) => `
       <div class="student-tile" data-student-index="${idx}">
         <h3>${student.name}</h3>
         <p>${student.email}</p>
       </div>
     `).join('');
     document.getElementById('studenten-tiles').innerHTML = tilesHtml;
-    addTileClickListeners(students);
+    addTileClickListeners(studentsToRender);
+  }
+
+  function addTileClickListeners(studentsToRender) {
+    document.querySelectorAll('.student-tile').forEach(tile => {
+      tile.addEventListener('click', () => {
+        const idx = tile.getAttribute('data-student-index');
+        const student = studentsToRender[idx];
+        renderStudent(student, idx);
+      });
+    });
   }
 
   document.getElementById('app').innerHTML = `
@@ -66,19 +78,6 @@ export function renderStudentenBeheer() {
     location.href = 'index.html';
   });
 
-  //initiele render van de student tiles
-  renderStudentTiles(students);
-
-  function addTileClickListeners(students) {
-    document.querySelectorAll('.student-tile').forEach(tile => {
-      tile.addEventListener('click', () => {
-        const idx = tile.getAttribute('data-student-index');
-        const student = students[idx];
-        renderStudent(student, idx);
-      });
-    });
-  }
-
   //zoekfunctie voor studenten
   document.getElementById('search-student').addEventListener('input', (event) => {
     const searchStudent = event.target.value.toLowerCase();
@@ -88,4 +87,7 @@ export function renderStudentenBeheer() {
     );
     renderStudentTiles(filtered);
   });
+
+  // Start met het ophalen en tonen van studenten
+  await laadStudenten();
 }
