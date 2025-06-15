@@ -30,42 +30,47 @@
 
       <!--Formulier bedrijven-->
 
-   <div class="registratie-form">
-  <form id="bedrijfForm" action="">
+      <div class="registratie-form">
+        <form id="bedrijfForm" action="">
 
-    <h3>Bedrijfsgegevens</h3>
-    <label for="Bedrijfsnaam">Bedrijfsnaam:</label><br>
-    <input type="text" id="bedrijfsnaam" name="bedrijfsnaam" required><br>
+          <h3>Bedrijfsgegevens</h3>
+          <label for="Bedrijfsnaam">Bedrijfsnaam:</label><br>
+          <input type="text" id="bedrijfsnaam" name="bedrijfsnaam" required><br>
 
-    <label for="adres">Adres:</label><br>
-    <input type="adres" id="adres" name="adres" required><br>
+          <label for="adres">Adres:</label><br>
+          <input type="text" id="adres" name="adres" required><br>
 
-    <h3>Contactpersoon gegevens</h3>
-    <label for="voornaam">Voornaam:</label><br>
-    <input type="text" id="voornaam" name="voornaam" required><br>
+          <h3>Contactpersoon gegevens</h3>
+          <label for="voornaam">Voornaam:</label><br>
+          <input type="text" id="voornaam" name="voornaam" required><br>
 
-    <label for="achternaam">Achternaam:</label><br>
-    <input type="text" id="achternaam" name="achternaam" required><br>
+          <label for="achternaam">Achternaam:</label><br>
+          <input type="text" id="achternaam" name="achternaam" required><br>
 
-    <label for="telefoon">Telefoonnummer:</label><br>
-    <input type="tel" id="telefoon" name="telefoon" required autocomplete="tel"><br>
+          <label for="telefoon">Telefoonnummer:</label><br>
+          <input type="tel" id="telefoon" name="telefoon" required autocomplete="tel"><br>
 
-    <h3>Account gegevens</h3>
-    <label for="email">E-mailadres:</label><br>
-    <input type="email" id="email" name="email" required autocomplete="email"><br>
+          <h3>Account gegevens</h3>
+          <label for="email">E-mailadres:</label><br>
+          <input type="email" id="email" name="email" required autocomplete="email"><br>
 
-    <label for="wachtwoord">Wachtwoord:</label><br>
-    <input type="password" id="wachtwoord" name="wachtwoord" required autocomplete="new-password"><br>
+          <label for="wachtwoord">Wachtwoord:</label><br>
+          <input type="password" id="wachtwoord" name="wachtwoord" required autocomplete="new-password"><br>
 
-    <label for="herhaalwachtwoord">Herhaal wachtwoord:</label><br>
-    <input type="password" id="herhaalwachtwoord" name="herhaalwachtwoord" required autocomplete="new-password"><br>
+          <label for="herhaalwachtwoord">Herhaal wachtwoord:</label><br>
+          <input type="password" id="herhaalwachtwoord" name="herhaalwachtwoord" required
+            autocomplete="new-password"><br>
 
-    <button type="submit" class="submit">Registreren</button>
-  </form>
+          <div style="margin-top: 1em;">
+            <button type="submit" class="submit">Registreren</button>
+            <span id="loadingText" style="display:none; margin-left: 10px;">Even geduld...</span>
+          </div>
+        </form>
       </div>
-      </div>
+    </div>
   </section>
   <script type="module" src="src/scripts/BedrijfAanmaken.js"></script>
 
 </body>
+
 </html>

@@ -5,13 +5,12 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("#bedrijfForm");
-
+ 
   const backHomeBtn = document.getElementById("backHome-btn");
   const backBtn = document.getElementById("back-btn");
   const fotoInput = document.getElementById("foto");
-  const fotoPreview = document.getElementById("foto-preview");
-  const fotoLabel = document.getElementById("foto-label");
   const deleteFotoBtn = document.getElementById("delete-foto-btn");
+  const submitButton = document.querySelector(".submit");
 
   if (backHomeBtn) backHomeBtn.addEventListener("click", () => window.location.href = "index.html");
   if (backBtn) backBtn.addEventListener("click", () => window.location.href = "index.html");
@@ -38,6 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      submitButton.disabled = true;
+      document.getElementById("loadingText").style.display = "inline";
+      
       try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, wachtwoord);
         const uid = userCredential.user.uid;
@@ -77,7 +79,10 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           alert("Fout: " + error.message);
         }
-      }
+      }finally {
+        submitButton.disabled = false;
+        document.getElementById("loadingText").style.display = "none";
+}
     });
   }
 });

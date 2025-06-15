@@ -54,9 +54,13 @@
                     <input type="password" id="wachtwoord" name="wachtwoord" required autocomplete="new-password"><br>
 
                     <label for="herhaalwachtwoord">Herhaal wachtwoord:</label><br>
-                    <input type="password" id="herhaalwachtwoord" name="herhaalwachtwoord" required autocomplete="new-password"><br>
+                    <input type="password" id="herhaalwachtwoord" name="herhaalwachtwoord" required
+                        autocomplete="new-password"><br>
 
-                    <button type="submit" class="submit">Registreren</button>
+                    <div style="margin-top: 1em;">
+                        <button type="submit" class="submit">Registreren</button>
+                        <span id="loadingText" style="display:none; margin-left: 10px;">Even geduld...</span>
+                    </div>
                 </form>
             </div>
 

@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const fotoInput = document.getElementById("foto");
   const fotoUploadDiv = document.querySelector(".foto-upload");
   const deleteFotoBtn = document.getElementById("delete-foto-btn");
+  const submitButton = document.querySelector(".submit");
 
   if (backHomeBtn) backHomeBtn.addEventListener('click', () => window.location.href = 'index.html');
   if (backBtn) backBtn.addEventListener('click', () => window.location.href = 'index.html');
@@ -35,7 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Wachtwoorden komen niet overeen!");
         return;
       }
-
+      
+      submitButton.disabled = true;
+      document.getElementById("loadingText").style.display = "inline";
+      
       try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, wachtwoord);
         const uid = userCredential.user.uid;
@@ -74,7 +78,10 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           alert("Fout: " + error.message);
         }
-      }
+      }finally {
+        submitButton.disabled = false;
+        document.getElementById("loadingText").style.display = "none";
+}
     });
   }
 });
