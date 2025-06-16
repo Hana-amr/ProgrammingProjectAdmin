@@ -51,7 +51,7 @@ export function renderBedrijvenBeheer() {
   });
 
   document.getElementById('btn-home').addEventListener('click', () => {
-    location.href = '/';
+    window.location.href = 'keuzeMenu.html';
   });
 
   //logica voor een tile van een bedrijf

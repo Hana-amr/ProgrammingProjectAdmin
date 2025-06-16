@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const deleteFotoBtn = document.getElementById("delete-foto-btn");
   const submitButton = document.querySelector(".submit");
 
-  if (backHomeBtn) backHomeBtn.addEventListener('click', () => window.location.href = 'index.html');
-  if (backBtn) backBtn.addEventListener('click', () => window.location.href = 'index.html');
+  if (backHomeBtn) backHomeBtn.addEventListener('click', () => window.location.href = 'keuzeMenu.html');
+  if (backBtn) backBtn.addEventListener('click', () => window.location.href = 'keuzeMenu.html');
   if (fotoUploadDiv && fotoInput) fotoUploadDiv.addEventListener("click", () => fotoInput.click());
   if (fotoInput) fotoInput.addEventListener("change", previewFoto);
   if (deleteFotoBtn) deleteFotoBtn.addEventListener("click", deleteFoto);

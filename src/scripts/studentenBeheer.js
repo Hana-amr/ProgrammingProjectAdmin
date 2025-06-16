@@ -63,7 +63,7 @@ export function renderStudentenBeheer() {
   });
 
   document.getElementById('btn-home').addEventListener('click', () => {
-    location.href = 'index.html';
+    location.href = 'keuzeMenu.html';
   });
 
   //initiele render van de student tiles

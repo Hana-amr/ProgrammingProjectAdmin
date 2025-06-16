@@ -16,6 +16,6 @@ export function renderAccountAanmakenHome() {
 
 
    document.getElementById('backhome-btn').addEventListener('click', () => {
-     location.reload(); 
+     window.location.href = 'keuzeMenu.html'; 
    });
 }

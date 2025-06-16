@@ -60,6 +60,6 @@ export function renderStudent(student) {
     renderStudentenBeheer();
   });
   document.getElementById('backHome-btn').addEventListener('click', () => {
-    location.href = 'index.html';
+    location.href = 'keuzeMenu.html';
   });
 }

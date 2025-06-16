@@ -20,6 +20,6 @@ export function renderAccountBeherenHome() {
 
   // Terug-knop handler
   document.getElementById('back-btn').addEventListener('click', () => {
-    location.reload();
+    window.location.href = 'keuzeMenu.html';
   });
 }

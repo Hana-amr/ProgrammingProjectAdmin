@@ -58,7 +58,7 @@ export function renderBedrijf(bedrijf){
   </section>`
 
   document.getElementById('backHome-btn').addEventListener('click', () => {
-    window.location.href = 'index.html'; 
+    window.location.href = 'keuzeMenu.html'; 
   });
   document.getElementById('back-btn').addEventListener('click', () => {
     renderBedrijvenBeheer();
