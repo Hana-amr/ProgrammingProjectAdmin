@@ -1,8 +1,16 @@
 import { renderAccountBeherenHome } from "./accountBeherenHome";
-import { renderStudent } from "./studentBeheer";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from './firebase.js';
 
-export function renderStudentenBeheer() {
+export async function renderStudentenBeheer() {
+  const usersRef = collection(db, "user");
+  const studentenQuery = query(usersRef, where("role", "==", "student"));
+  const querySnapshot = await getDocs(studentenQuery);
 
+  const students = querySnapshot.docs.map(doc => ({
+    id: doc.id,
+    ...doc.data()
+  }));
   //logica voor een tile van een student
   function renderStudentTiles(students) {
     const tilesHtml = students.map((student, idx) => `
