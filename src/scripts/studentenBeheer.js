@@ -2,42 +2,6 @@ import { renderAccountBeherenHome } from "./accountBeherenHome";
 import { renderStudent } from "./studentBeheer";
 
 export function renderStudentenBeheer() {
-  // Voorbeeld data voor studenten
-  const students = [
-    {
-      name: "AdamA",
-      email: "AdamA@example.com",
-      richting: "Informatica",
-      voornaam: "Adam",
-      achternaam: "A.",
-      telefoon: "0612345678"
-    },
-    {
-      name: "Abdou",
-      email: "Abdou@example.com",
-      richting: "ICT",
-      voornaam: "Abdou",
-      achternaam: "B.",
-      telefoon: "0687654321"
-    },
-    {
-      name: "Hana",
-      email: "Hana@example.com",
-      richting: "",
-      voornaam: "Hana",
-      achternaam: "C.",
-      telefoon: "0611122233"
-    },
-    {
-      name: "Kainy",
-      email: "kainy@example.com",
-      richting: "Toegepaste Informatica",
-      voornaam: "Kainy",
-      achternaam: "D.",
-      telefoon: "0622233344"
-    }
-  ];
-
   //logica voor een tile van een student
   function renderStudentTiles(students) {
     const tilesHtml = students.map((student, idx) => `
