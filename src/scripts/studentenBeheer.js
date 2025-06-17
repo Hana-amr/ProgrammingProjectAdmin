@@ -1,19 +1,20 @@
 import { renderAccountBeherenHome } from "./accountBeherenHome";
 import { renderStudent } from "./studentBeheer";
-import { db } from './firebase.js';
-import { collection, getDocs, query, where } from "firebase/firestore";
 
-export async function renderStudentenBeheer() {
-  const usersRef = collection(db, "user");
-  const studentenQuery = query(usersRef, where("role", "==", "student"));
-  const querySnapshot = await getDocs(studentenQuery);
+export function renderStudentenBeheer() {
 
-  const students = querySnapshot.docs.map(doc => ({
-    id: doc.id,
-    ...doc.data()
-  }));
+  //logica voor een tile van een student
+  function renderStudentTiles(students) {
+    const tilesHtml = students.map((student, idx) => `
+      <div class="student-tile" data-student-index="${idx}">
+        <h3>${student.name}</h3>
+        <p>${student.email}</p>
+      </div>
+    `).join('');
+    document.getElementById('studenten-tiles').innerHTML = tilesHtml;
+    addTileClickListeners(students);
+  }
 
-  // Render HTML pas nadat studenten zijn opgehaald
   document.getElementById('app').innerHTML = `
     <h1 id='student-titel'>Studenten Beheer</h1>
     <input type="text" id="search-student" placeholder="Zoek student of richting...">
