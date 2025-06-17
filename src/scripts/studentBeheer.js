@@ -1,5 +1,5 @@
 import { renderStudentenBeheer } from './studentenBeheer.js';
-  import { doc, updateDoc, deleteDoc } from "firebase/firestore";
+import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "./firebase.js";
 
 export function renderStudent(student) {
@@ -27,11 +27,34 @@ export function renderStudent(student) {
             <!--Formulier studenten-->
             <div class="registratie-container">
             <form class="beheer-form" data-id="${student.id}">
-
-                    <h3>Studiekeuze</h3>
-                    <label for="richting">Richting:</label><br>
-                    <input type="text" id="richting" name="opleiding" value="${student?.opleiding || ''}"><br>
-
+            <h3>Opleiding</h3>
+            <label for="opleiding">Kies een opleiding:</label><br>
+            <select id="opleiding" name="opleiding">
+              <optgroup label="Erasmus">
+                <option value="">-- Kies een opleiding --</option>
+                 <option value="Bachelor Multimedia & Creatieve Technologie" ${student?.opleiding === "Bachelor Multimedia & Creatieve Technologie" ? 'selected' : ''}>Bachelor Multimedia & Creatieve Technologie</option>
+                 <option value="Bachelor Toegepaste Informatica" ${student?.opleiding === "Bachelor Toegepaste Informatica" ? 'selected' : ''}>Bachelor Toegepaste Informatica</option>
+                 <option value="Graduaat Elektromechanische Systemen" ${student?.opleiding === "Graduaat Elektromechanische Systemen" ? 'selected' : ''}>Graduaat Elektromechanische Systemen</option>
+                 <option value="Graduaat Programmeren" ${student?.opleiding === "Graduaat Programmeren" ? 'selected' : ''}>Graduaat Programmeren</option>
+                 <option value="Graduaat Systeem- en Netwerkbeheer" ${student?.opleiding === "Graduaat Systeem- en Netwerkbeheer" ? 'selected' : ''}>Graduaat Systeem- en Netwerkbeheer</option>
+                 <option value="Postgraduaat Coding (online)" ${student?.opleiding === "Postgraduaat Coding (online)" ? 'selected' : ''}>Postgraduaat Coding (online)</option>
+                 <option value="Postgraduaat Toegepaste Artificial Intelligence" ${student?.opleiding === "Postgraduaat Toegepaste Artificial Intelligence" ? 'selected' : ''}>Postgraduaat Toegepaste Artificial Intelligence</option>
+             </optgroup>
+            <optgroup label="Koninklijk Conservatorium Brussel">
+                 <option value="Professionele bachelor Musical" ${student?.opleiding === "Professionele bachelor Musical" ? 'selected' : ''}>Professionele bachelor Musical</option>
+                 <option value="Professionele master Musical" ${student?.opleiding === "Professionele master Musical" ? 'selected' : ''}>Professionele master Musical</option>
+                 <option value="Academische bachelor Muziek: Jazz" ${student?.opleiding === "Academische bachelor Muziek: Jazz" ? 'selected' : ''}>Academische bachelor Muziek: Jazz</option>
+                 <option value="Academische master Muziek: Jazz" ${student?.opleiding === "Academische master Muziek: Jazz" ? 'selected' : ''}>Academische master Muziek: Jazz</option>
+             </optgroup>
+            <optgroup label="RITCS">
+                <option value="Academische bachelor Drama: Regie & Schrijven" ${student?.opleiding === "Academische bachelor Drama: Regie & Schrijven" ? 'selected' : ''}>Academische bachelor Drama: Regie & Schrijven</option>
+                <option value="Academische master Drama: Regie & Schrijven" ${student?.opleiding === "Academische master Drama: Regie & Schrijven" ? 'selected' : ''}>Academische master Drama: Regie & Schrijven</option>
+                <option value="Academische bachelor Drama: Acteren" ${student?.opleiding === "Academische bachelor Drama: Acteren" ? 'selected' : ''}>Academische bachelor Drama: Acteren</option>
+                <option value="Academische master Drama: Acteren" ${student?.opleiding === "Academische master Drama: Acteren" ? 'selected' : ''}>Academische master Drama: Acteren</option>
+                <option value="Professionele bachelor Podiumtechnieken" ${student?.opleiding === "Professionele bachelor Podiumtechnieken" ? 'selected' : ''}>Professionele bachelor Podiumtechnieken</option>
+                <option value="Graduaat Podium- & Eventtechnieken" ${student?.opleiding === "Graduaat Podium- & Eventtechnieken" ? 'selected' : ''}>Graduaat Podium- & Eventtechnieken</option>
+            </optgroup>
+          </select>
                     <h3>Persoonsinformatie</h3>
                     <label for="voornaam">Voornaam:</label><br>
                     <input type="text" id="voornaam" name="firstname" value="${student?.firstname || ''}"><br>
@@ -40,21 +63,14 @@ export function renderStudent(student) {
                     <input type="text" id="achternaam" name="surname" value="${student?.surname || ''}"><br>
 
                     <label for="telefoon">Telefoonnummer:</label><br>
-                    <input type="tel" id="telefoon" name="gsm" value="${student?.gsm || ''}"><br>
+                    <input type="tel" id="gsm" name="gsm" value="${student?.gsm || ''}"><br>
 
                     <h3>Account gegevens</h3>
                     <label for="email">E-mailadres:</label><br>
                     <input type="email" id="email" name="email" value="${student?.email || ''}"><br>
 
-                    <label for="wachtwoord">Wachtwoord:</label><br>
-                    <input type="password" id="wachtwoord" name="wachtwoord" ><br>
-
-                    <label for="herhaalwachtwoord">Herhaal wachtwoord:</label><br>
-                    <input type="password" id="herhaalwachtwoord" name="herhaalwachtwoord" ><br>
-
                     <button type="submit" class="submit">Pas aan</button>
                     <button type="button" id="verwijder-student" style="background: red; color: white;">Verwijder student</button>
-
                 </form>
             </div>
         </div>
@@ -69,61 +85,48 @@ export function renderStudent(student) {
 
 
   //info aanpassen
-document.querySelector('.beheer-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
+  document.querySelector('.beheer-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-  const form = e.target;
-  const studentId = form.getAttribute('data-id');
+    const form = e.target;
+    const studentId = form.getAttribute('data-id');
 
-  const updatedData = {
-    firstname: form.firstname.value,
-    surname: form.surname.value,
-    richting: form.richting.value,
-    gsm: form.gsm.value,
-    email: form.email.value,
-    wachtwoord: form.wachtwoord.value,
-    herhaalwachtwoord: form.herhaalwachtwoord.value,
+    const updatedData = {
+      firstname: form.firstname.value,
+      surname: form.surname.value,
+      opleiding: form.opleiding.value,
+      gsm: form.gsm.value,
+      email: form.email.value,
 
-  };
+    };
 
-  //wachtwoord meer beveiligen
-  if(wachtwoord){
-    updatedData.wachtwoord = wachtwoord.value;
-  }
+    try {
+      const docRef = doc(db, "user", studentId);
+      await updateDoc(docRef, updatedData);
+      alert("Student succesvol bijgewerkt.");
+      renderStudentenBeheer(); // Terug naar overzicht
+    } catch (error) {
+      console.error("Fout bij updaten:", error);
+      alert("Fout bij updaten: " + error.message);
+    }
+  });
 
-  if (updatedData.wachtwoord !== updatedData.herhaalwachtwoord) {
-    alert("Wachtwoorden komen niet overeen!");
-    return;
-  }
-  
+  //student verwijderen
+  document.getElementById('verwijder-student').addEventListener('click', async () => {
+    const studentId = document.querySelector('.beheer-form').getAttribute('data-id');
 
-  try {
-    const docRef = doc(db, "user", studentId);
-    await updateDoc(docRef, updatedData);
-    alert("Student succesvol bijgewerkt.");
-    renderStudentenBeheer(); // Terug naar overzicht
-  } catch (error) {
-    console.error("Fout bij updaten:", error);
-    alert("Fout bij updaten: " + error.message);
-  }
-});
+    const bevestig = confirm("Weet je zeker dat je deze student wilt verwijderen?");
+    if (!bevestig) return;
 
-//student verwijderen
-document.getElementById('verwijder-student').addEventListener('click', async () => {
-  const studentId = document.querySelector('.beheer-form').getAttribute('data-id');
-
-  const bevestig = confirm("Weet je zeker dat je deze student wilt verwijderen?");
-  if (!bevestig) return;
-
-  try {
-    await deleteDoc(doc(db, "user", studentId));
-    alert("Student verwijderd.");
-    renderStudentenBeheer(); // Terug naar overzicht
-  } catch (error) {
-    console.error("Fout bij verwijderen:", error);
-    alert("Fout bij verwijderen: " + error.message);
-  }
-});
+    try {
+      await deleteDoc(doc(db, "user", studentId));
+      alert("Student verwijderd.");
+      renderStudentenBeheer(); // Terug naar overzicht
+    } catch (error) {
+      console.error("Fout bij verwijderen:", error);
+      alert("Fout bij verwijderen: " + error.message);
+    }
+  });
 
 
 }

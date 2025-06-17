@@ -1,4 +1,6 @@
 import { renderBedrijvenBeheer } from "./bedrijvenBeheer"
+import { doc, updateDoc, deleteDoc } from "firebase/firestore";
+import { db } from "./firebase.js";
 
 export function renderBedrijf(bedrijf){
     document.getElementById('app').innerHTML = `
@@ -23,35 +25,24 @@ export function renderBedrijf(bedrijf){
 
       <!--Formulier bedrijven-->
       <div class="registratie-container">
-      <form class="beheer-form">
+      <form class="beheer-form" data-id="${bedrijf.id}">
           <h3>Bedrijfsgegevens</h3>
           <label for="Bedrijfsnaam">Bedrijfsnaam:</label><br>
-          <input type="text" id="Bedrijfsnaam" name="Bedrijfsnaam" value="${bedrijf?.naam || ''}"><br>
-
-          <label for="adres">Adres:</label><br>
-          <input type="text" id="adres" name="adres" value="${bedrijf?.adres || ''}"><br>
+          <input type="text" id="bedrijfsnaam" name="bedrijfsnaam" value="${bedrijf?.bedrijfsnaam || ''}"><br>
 
           <h3>Persoonsinformatie</h3>
-          <label for="voornaam">Voornaam:</label><br>
-          <input type="text" id="voornaam" name="voornaam" value="${bedrijf?.voornaam || ''}"><br>
+          <label for="contact">Contactpersoon:</label><br>
+          <input type="text" id="contact" name="contact" value="${bedrijf?.contactpersoon || ''}"><br>
 
-          <label for="achternaam">Achternaam:</label><br>
-          <input type="text" id="achternaam" name="achternaam" value="${bedrijf?.achternaam || ''}"><br>
-
-          <label for="telefoon">Telefoonnummer:</label><br>
-          <input type="tel" id="telefoon" name="telefoon" value="${bedrijf?.telefoon || ''}"><br>
+          <label for="emailcontact">Email Contactpersoon:</label><br>
+          <input type="text" id="emailcontact" name="emailcontact" value="${bedrijf?.emailcontactpersoon || ''}"><br>
 
           <h3>Account gegevens</h3>
-          <label for="email">E-mailadres:</label><br>
+          <label for="email">E-mailadres Bedrijf:</label><br>
           <input type="email" id="email" name="email" value="${bedrijf?.email || ''}"><br>
 
-          <label for="wachtwoord">Wachtwoord:</label><br>
-          <input type="password" id="wachtwoord" name="wachtwoord" required><br>
-
-          <label for="herhaalwachtwoord">Herhaal wachtwoord:</label><br>
-          <input type="password" id="herhaalwachtwoord" name="herhaalwachtwoord" required><br>
-
           <button type="submit" class="submit">Pas aan</button>
+          <button type="button" id="verwijder-bedrijf" style="background: red; color: white;">Verwijder bedrijf</button>
         </form>
       </div>
     </div>
@@ -63,4 +54,47 @@ export function renderBedrijf(bedrijf){
   document.getElementById('back-btn').addEventListener('click', () => {
     renderBedrijvenBeheer();
   });
+
+  //info aanpassen
+  document.querySelector('.beheer-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const form = e.target;
+  const bedrijfId = form.getAttribute('data-id');
+
+  const updatedData = {
+    bedrijfsnaam: form.bedrijfsnaam.value,
+    contactpersoon: form.contact.value,
+    emailcontactpersoon: form.emailcontact.value,
+    email: form.email.value,
+  };  
+
+  try {
+    const docRef = doc(db, "user", bedrijfId);
+    await updateDoc(docRef, updatedData);
+    alert("Bedrijf succesvol bijgewerkt.");
+    renderBedrijvenBeheer(); // Terug naar overzicht
+  } catch (error) {
+    console.error("Fout bij updaten:", error);
+    alert("Fout bij updaten: " + error.message);
+  }
+});
+
+//student verwijderen
+document.getElementById('verwijder-bedrijf').addEventListener('click', async () => {
+  const bedrijfId = document.querySelector('.beheer-form').getAttribute('data-id');
+
+  const bevestig = confirm("Weet je zeker dat je dit bedrijf wilt verwijderen?");
+  if (!bevestig) return;
+
+  try {
+    await deleteDoc(doc(db, "user", bedrijfId));
+    alert("Bedrijf verwijderd.");
+    renderBedrijvenBeheer(); // Terug naar overzicht
+  } catch (error) {
+    console.error("Fout bij verwijderen:", error);
+    alert("Fout bij verwijderen: " + error.message);
+  }
+});
+
 };
