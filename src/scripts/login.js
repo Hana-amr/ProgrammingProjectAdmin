@@ -33,10 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
       errorDiv.textContent = "✅ Inloggen gelukt!";
 
       // ✅ Stuur gebruiker door naar adminpagina
-      window.location.href = "keuzeMenu"; // ← pas dit pad aan indien nodig
+      window.location.href = "keuzeMenu.html"; // ← pas dit pad aan indien nodig
     } catch (error) {
       console.error("❌ Inloggen mislukt:", error.message);
-      errorDiv.textContent = "❌ Inloggen mislukt: " + error.message;
+      errorDiv.textContent = "❌ Inloggen mislukt";
     }
   });
 });

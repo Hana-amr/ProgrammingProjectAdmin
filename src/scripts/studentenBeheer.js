@@ -53,8 +53,8 @@ export function renderStudentenBeheer() {
   document.getElementById('app').innerHTML = `
     <h1 id='student-titel'>Studenten Beheer</h1>
     <input type="text" id="search-student" placeholder="Zoek student...">
-    <button id="back-btn"> > </button>
-    <button id='btn-home'>Home</button>
+    <button id="back-btn"> ← </button>
+    <button id='btn-home'>HOME</button>
     <div id="studenten-tiles"></div>
   `;
 

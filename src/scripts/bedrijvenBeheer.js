@@ -42,8 +42,8 @@ export function renderBedrijvenBeheer() {
     <button id='btn-bedrijven-toevoegen'>Bedrijf Toevoegen</button>
     <div id="bedrijven-tiles">
     </div>
-    <button id="back-btn"> > </button>
-    <button id='btn-home'>Home</button>
+    <button id="back-btn">←</button>
+    <button id='btn-home'>HOME</button>
   `;
 
   document.getElementById('back-btn').addEventListener('click', () => {

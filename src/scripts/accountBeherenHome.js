@@ -6,7 +6,7 @@ export function renderAccountBeherenHome() {
     <h1>Account Beheren</h1>
     <button id='btn-studenten-beheer'>Studenten</button>
     <button id='btn-bedrijven-beheer'>Bedrijven</button>
-    <button id="back-btn"> > </button>
+    <button id="back-btn"> ← </button>
   `;
 
   // Voeg eventlistener toe aan de nieuwe studenten-knop
