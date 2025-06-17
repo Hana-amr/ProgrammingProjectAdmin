@@ -1,4 +1,5 @@
 import { renderAccountBeherenHome } from "./accountBeherenHome";
+import { renderStudent } from "./studentBeheer.js";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from './firebase.js';
 
