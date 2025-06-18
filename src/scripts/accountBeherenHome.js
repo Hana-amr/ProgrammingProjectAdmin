@@ -3,7 +3,7 @@ import { renderStudentenBeheer } from './studentenBeheer';
 
 export function renderAccountBeherenHome() {
   document.getElementById('app').innerHTML = `
-    <h1>Account Beheren</h1>
+    <h1 class= "titel3">Account Beheren</h1>
     <button id='btn-studenten-beheer'>Studenten</button>
     <button id='btn-bedrijven-beheer'>Bedrijven</button>
     <button id="back-btn"> ← </button>

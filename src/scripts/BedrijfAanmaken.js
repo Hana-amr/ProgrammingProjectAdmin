@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let logoURL = "";
         if (logoFile) {
           const storage = getStorage();
-          const storageRef = ref(storage, `bedrijfslogos/${uid}`);
+          const storageRef = ref(storage, `logos/${uid}`);
           await uploadBytes(storageRef, logoFile);
           logoURL = await getDownloadURL(storageRef);
         }
