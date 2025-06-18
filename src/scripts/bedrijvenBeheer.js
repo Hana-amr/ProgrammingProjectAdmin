@@ -19,14 +19,14 @@ export async function renderBedrijvenBeheer() {
     <div id="bedrijven-tiles">
     </div>
     <button id="back-btn">←</button>
-    <button id='btn-home'>HOME</button>
+    <button id='backHome-btn'>HOME</button>
   `;
 
   document.getElementById('back-btn').addEventListener('click', () => {
     renderAccountBeherenHome();
   });
 
-  document.getElementById('btn-home').addEventListener('click', () => {
+  document.getElementById('backHome-btn').addEventListener('click', () => {
     window.location.href = 'keuzeMenu.html';
   });
 

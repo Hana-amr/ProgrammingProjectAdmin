@@ -6,7 +6,7 @@ export function renderStudent(student) {
   document.getElementById('app').innerHTML = `
     <header id="StudentBeherenHeader">
         <button id="back-btn">←</button>
-        <h2 class="titel">Student Beheren</h2>
+        <h2 class="titel4">Student Beheren</h2>
         <button id="backHome-btn">HOME</button>
     </header>
 

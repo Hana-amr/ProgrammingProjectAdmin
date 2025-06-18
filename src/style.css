@@ -1,44 +1,4 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-body {
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
-  margin: 0;
-  background: #f8fbfd;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-  box-sizing: border-box;
-}
-
-header {
-  background-color: #A3EEFF;
-  padding: 15px 0;
-  position: relative;
-  flex-shrink: 0;
-  width: 100vw;
-  min-height: 60px;
-  box-sizing: border-box;
-}
-
-.titel {
-  margin: 0;
-  font-size: 2rem;
-  text-align: center;
-}
+/*Back knop en Home knop */
 
 #back-btn {
   position: absolute;
@@ -51,40 +11,241 @@ header {
   cursor: pointer;
 }
 
-#backHome-btn {
+#backHome-btn{
   position: absolute;
   top: 20px;
-  right: 40px;
+  right: 15px;
   font-size: 20px;
-  background: none;
   border: none;
   color: black;
   cursor: pointer;
+  border-radius: 5px;
 }
 
-.registratie-container,
-.beheer-container {
-  flex: 1 1 auto;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2vw 0;
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(163,238,255,0.13);
-  width: 100vw;
-  max-width: 100vw;
-  box-sizing: border-box;
+#backHome-btn:hover {
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+}
+
+/*keuzeMenu body en titel*/
+
+#body1{
+  background-color: #A3EEFF;
+  color:white;
+}
+
+.titel1 {
+  padding-top: 150px;
+  padding-bottom: 50px;
   margin: 0;
+  font-size: 50px;
+  text-align: center;
 }
 
-.foto-upload-container {
+/*buttons keuzeMenu*/
+
+#btn-account-aanmaken,
+#btn-account-beheren, 
+#btn-logout{
+  display: block;
+  width:20%;
+  padding: 12px;
+  margin: 0.5em auto;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#btn-account-aanmaken, #btn-account-beheren{
+  background-color: white;
+}
+#btn-logout{
+  background-color: white;
+  color:black;
+  margin-top: 20px;
+  margin-bottom: 0;
+  width:15%;
+}
+
+#btn-account-aanmaken:hover,
+#btn-account-beheren:hover, 
+#btn-logout:hover{
+  background-color:#333;
+  color: white;
+}
+
+/*AccountAanmaken*/
+
+.titel2{
+  padding-top: 150px;
+  padding-bottom: 50px;
+  margin: 0;
+  font-size: 45px;
+  text-align: center;
+}
+
+#btn-student, #btn-bedrijf {
+  background-color: white;
+  color:black;
+  display: block;
+  width:10%;
+  padding: 15px;
+  margin: 0.5em auto;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+#btn-student:hover, 
+#btn-bedrijf:hover {
+  background-color:#333;
+  color: white;
+}
+
+/*Accounts beheren*/
+
+.titel3 {
+ padding-top: 150px;
+  padding-bottom: 50px;
+  margin: 0;
+  font-size: 45px;
+  text-align: center;
+}
+
+#btn-studenten-beheer, 
+#btn-bedrijven-beheer{
+  background-color: white;
+  color:black;
+  display: block;
+  width:10%;
+  padding: 15px;
+  margin: 0.5em auto;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+#btn-studenten-beheer:hover, 
+#btn-bedrijven-beheer:hover {
+ background-color:#333;
+  color: white;
+}
+
+/*Studenten Beheer + bedrijven beheer*/
+
+#student-titel, #bedrijven-titel {
+  padding-bottom: 15px;
+  margin: 0;
+  font-size: 35px;
+  text-align: center;
+  color: black;
+}
+
+#search-student, #search-bedrijf {
+
+  display: block;
+  margin: 3em auto 1em auto; 
+  font-size: 1.2em;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  width: 50%;
+  max-width: 500px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+}
+
+#studenten-tiles,
+#bedrijven-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin-top: 2em;
+  padding: 1.5em 2em;   
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+.student-tile, .bedrijf-tile{
+  background: #fff;
+  border: 2px solid #A3EEFF;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(100, 108, 255, 0.10);
+  padding: 1.5em 2em;
+  color: #222;
+  font-size: 1.15em;
+  min-width: 240px;
+  max-width: 320px;
+  word-break: break-word;
+  margin-bottom: 8px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.student-tile h3,
+.bedrijf-tile h3 {
+  margin: 0 0 0.3em 0;
+  font-size: 1.2em;
+  color: #222;
+  font-weight: bold;
+}
+
+.student-tile p,
+.bedrijf-tile p {
+  margin: 0.2em 0;
+  color: #333;
+  font-size: 1em;
+}
+
+.student-tile:hover,
+.bedrijf-tile:hover {
+  box-shadow: 0 4px 16px rgba(100,108,255,0.18);
+  border-color: darkblue;
+  background: #f8fbfd;
+}
+
+
+/*body */
+
+#beheer-studenten, #beheer-bedrijven{
+  color: black;
+  background-color: white;
+  margin: auto;
+  padding-bottom: 150px;
+}
+
+.titel4, .titel5{
+  margin: 0;
+  font-size: 30px;
+  text-align: center;
+  color: black;
+  padding-top: 25px;
+
+}
+
+/*Formuliers*/
+
+.beheer-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 1000px;
+  flex-wrap: wrap;
+}
+
+.foto-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 15px;
 }
 
 .foto-upload {
@@ -126,393 +287,55 @@ header {
   margin-top: 10px;
 }
 
-.foto-upload input[type="file"] {
-  display: none;
+/* Formulierstijl */
+.registratie-container {
+  flex: 1;
 }
 
-.registratie-form,
-.beheer-form {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  background: none;
-  box-shadow: none;
-  border-radius: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.registratie-form h3,
 .beheer-form h3 {
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
   color: #333;
 }
 
-.registratie-form label,
 .beheer-form label {
-  font-weight: 500;
-  align-self: flex-start;
+  font-weight: initial;
 }
 
-.registratie-form input[type="text"],
-.registratie-form input[type="email"],
-.registratie-form input[type="tel"],
-.registratie-form input[type="password"],
 .beheer-form input[type="text"],
 .beheer-form input[type="email"],
 .beheer-form input[type="tel"],
-.beheer-form input[type="password"] {
-  width: 100%;
-  max-width: 720px;
-  padding: 14px;
+.beheer-form input[type="password"], #opleiding{
+  width: 85%;
+  padding: 8px;
   margin-bottom: 15px;
-  border: 1px solid #A3EEFF;
+  border: 1px solid #999;
   border-radius: 4px;
-  font-size: 1.15rem;
-  background: #f8fbfd;
-  box-sizing: border-box;
 }
 
+/* Submit button */
 button.submit {
   background-color: #A3EEFF;
   color: white;
   border: none;
-  padding: 14px 32px;
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-top: 10px;
-  box-shadow: 0 2px 8px rgba(100,108,255,0.08);
-  transition: background 0.2s, box-shadow 0.2s;
 }
 
 button.submit:hover {
-  background-color: #646cff;
+  background-color: #333;
 }
 
-@media (max-width: 900px) {
-  .registratie-container,
-  .beheer-container {
-    border-radius: 0;
-    box-shadow: none;
-    padding: 2vw 0;
-  }
-  .registratie-form,
-  .beheer-form {
-    max-width: 98vw;
-    padding: 0 2vw;
-  }
-}
-
-@media (max-width: 600px) {
-  header {
-    min-height: 48px;
-    padding: 10px 0;
-  }
-  .titel {
-    font-size: 1.2rem;
-  }
-  .registratie-container,
-  .beheer-container {
-    padding: 0;
-  }
-  .registratie-form,
-  .beheer-form {
-    max-width: 100vw;
-    padding: 0 1vw;
-  }
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: #A3EEFF;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-#app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 2em;
-  padding-top: 1em;
-}
-
-#back-btn{
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  font-size: 24px;
-  font-weight: bold;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-#btn-home{
-  position: absolute;
-  top: 20px;
-  right: 15px;
-  font-size: 20px;
-  background: none;
-  border: none;
-  color: black;
-  cursor: pointer;
-}
-
-#back-btn:hover {
-  color: #646cff;
-}
-
-#bedrijven-titel{
-    position: absolute;
-  top: 0em;
-  font-size: 3rem;
-  text-decoration: none;
-}
-
-.search-bedrijf{
-position: absolute;
-  top: 6em;
-  font-size: 1.2em;
-  text-decoration: none;
-  background-color: #aaaaaa;
-}
-
-#student-titel{
-  position: absolute;
-  top: 0em;
-  font-size: 3em;
-  text-decoration: none;
-}
-
-.titel{
-  margin: 0;
-  text-decoration: #000;
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 2em;
-  color:white;
-}
-
-#studenten-tiles,
-#bedrijven-tiles {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
-  margin-top: 2em;
-  padding: 1.5em 2em;   /* Voeg horizontale en verticale padding toe */
-  justify-content: flex-start;
-  box-sizing: border-box;
-}
-
-.bedrijf-tile{
-  background: #fff;
-  border: 2px solid #A3EEFF;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(100, 108, 255, 0.10);
-  padding: 1.5em 2em;
-  color: #222;
-  font-size: 1.15em;
-  min-width: 240px;
-  max-width: 320px;
-  word-break: break-word;
-  margin-bottom: 8px;
-  transition: box-shadow 0.2s, border-color 0.2s;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-}
-
-.student-tile {
-  background: #fff;
-  border: 2px solid #A3EEFF;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(100, 108, 255, 0.10);
-  padding: 1.5em 2em;
-  color: #222;
-  font-size: 1.15em;
-  min-width: 240px;
-  max-width: 320px;
-  word-break: break-word;
-  margin-bottom: 8px;
-  transition: box-shadow 0.2s, border-color 0.2s;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-}
-
-.student-tile h3,
-.bedrijf-tile h3 {
-  margin: 0 0 0.3em 0;
-  font-size: 1.2em;
-  color: #222;
-  font-weight: bold;
-}
-
-.student-tile p,
-.bedrijf-tile p {
-  margin: 0.2em 0;
-  color: #333;
-  font-size: 1em;
-}
-
-.student-tile:hover,
-.bedrijf-tile:hover {
-  box-shadow: 0 4px 16px rgba(100,108,255,0.18);
-  border-color: #646cff;
-  background: #f8fbfd;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-/*Administrator buttons*/
-#btn-account-aanmaken,
-#btn-account-beheren, 
-#btn-logout{
-  display: block;
-  width:20%;
-  padding: 12px;
-  margin: 0.5em auto;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-#btn-account-aanmaken, #btn-account-beheren{
-  background-color: white;
-}
-#btn-logout{
-  background-color: white;
-  color:black;
-  margin-top: 20px;
-  margin-bottom: 0;
-  width:15%;
-
-}
-
-#btn-account-aanmaken:hover,
-#btn-account-beheren:hover, 
-#btn-logout:hover{
-  background-color:#333;
+#verwijder-student, #verwijder-bedrijf{
+ background-color:red;
   color: white;
-}
-
-
-/*Accounts aanmaken buttons en Accounts beheren buttons*/
-#backhome-btn,#back-btn{
-  position: absolute;
-  top: 1em;
-  left: 1em;
-  font-size: 1.2em;
-  text-decoration: none;
-  background-color: white;
-  border:none;
-  border-radius: 5px;
-}
-
-#btn-student,#btn-bedrijf, #btn-studenten-beheer,
-#btn-bedrijven-beheer{
-  display: block;
-  width:20%;
-  padding: 12px;
-  margin: 0.5em auto;
   border: none;
+  padding: 10px 20px;
   border-radius: 5px;
-  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
-#btn-student:hover,
-#btn-bedrijf:hover, 
-#backhome-btn:hover,#btn-studenten-beheer:hover,
-#btn-bedrijven-beheer:hover,
-#back-btn:hover{
-  background-color:#333;
-  color:white;
+#verwijder-student:hover, #verwijder-bedrijf:hover {
+  background-color: lightcoral;
 }
 
-h1{
-  color: white;
-}
-
-#search-student,
-#search-bedrijf {
-  position: static;
-  display: block;
-  margin: 0 auto 1.5em auto;
-  font-size: 1.1em;
-  background-color: #fff;
-  border: 1px solid #A3EEFF;
-  border-radius: 4px;
-  padding: 15px 14px;
-  width: 100%;
-  max-width: 320px;
-  color: #222;
-  box-sizing: border-box;
-  margin: 0 auto 1.5em auto;
-}
-
-#student-titel,
-#bedrijven-titel {
-  position: static;
-  font-size: 2em;
-  margin: 0 0 0.5em 0;
-  color: #222;
-  text-align: left;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}

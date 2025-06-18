@@ -6,7 +6,7 @@ export function renderBedrijf(bedrijf){
     document.getElementById('app').innerHTML = `
   <header>
     <button id="back-btn">←</button>
-    <h2 class="titel">Bedrijf Beheren</h2>
+    <h2 class="titel5">Bedrijf Beheren</h2>
     <button id="backHome-btn">HOME</button>
   </header>
 
@@ -42,7 +42,7 @@ export function renderBedrijf(bedrijf){
           <input type="email" id="email" name="email" value="${bedrijf?.email || ''}"><br>
 
           <button type="submit" class="submit">Pas aan</button>
-          <button type="button" id="verwijder-bedrijf" style="background: red; color: white;">Verwijder bedrijf</button>
+          <button type="button" id="verwijder-bedrijf">Verwijder bedrijf</button>
         </form>
       </div>
     </div>

@@ -28,7 +28,7 @@ export async function renderStudentenBeheer() {
     <h1 id='student-titel'>Studenten Beheer</h1>
     <input type="text" id="search-student" placeholder="Zoek student of richting...">
     <button id="back-btn"> ← </button>
-    <button id='btn-home'>HOME</button>
+    <button id='backHome-btn'>HOME</button>
     <div id="studenten-tiles"></div>
   `;
 
@@ -36,7 +36,7 @@ export async function renderStudentenBeheer() {
     renderAccountBeherenHome();
   });
 
-  document.getElementById('btn-home').addEventListener('click', () => {
+  document.getElementById('backHome-btn').addEventListener('click', () => {
     location.href = 'keuzeMenu.html';
   });
 
