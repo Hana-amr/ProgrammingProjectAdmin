@@ -1,7 +1,6 @@
 import { auth } from "../scripts/firebase"; // Adjust the path as necessary
 import { signInWithEmailAndPassword } from "firebase/auth";
 // renderStudentenBeheer is niet meer nodig als je gaat navigeren
-// import { renderStudentenBeheer } from "../scripts/studentenBeheer.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("loginForm");
