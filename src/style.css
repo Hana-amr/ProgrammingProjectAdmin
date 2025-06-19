@@ -43,6 +43,48 @@
   text-align: center;
 }
 
+/*Instellingen button*/
+.pagina-instellingen-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.pagina-instellingen-knop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 25px;
+  padding: 8px 8px;
+  font-family: sans-serif;
+  font-size: 14px;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+.pagina-instellingen-knop .label {
+  display: none;
+}
+
+.pagina-instellingen-knop img {
+  width: 25px;
+  height: 25px;
+}
+
+.pagina-instellingen-knop:hover {
+  background-color: white;
+  padding: 8px 16px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.pagina-instellingen-knop:hover .label {
+  display: inline;
+  color: black;
+}
+
+
 /*buttons keuzeMenu*/
 
 #btn-account-aanmaken,
@@ -212,7 +254,7 @@
 }
 
 
-/*body */
+/*body formuliers*/
 
 #beheer-studenten, #beheer-bedrijven{
   color: black;
