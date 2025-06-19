@@ -87,7 +87,7 @@ export function renderStudent(student) {
   });
 
 
-  //info aanpassen
+  //validatie voor telefoonnummer
   function validate() {
     const userInput = document.getElementById("gsm").value.trim();
   
@@ -101,6 +101,7 @@ export function renderStudent(student) {
     }
   }
 
+  //info bijwerken
   document.querySelector('.beheer-form').addEventListener('submit', async (e) => {
     e.preventDefault();
 

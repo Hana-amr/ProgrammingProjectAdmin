@@ -30,6 +30,27 @@ export function renderBedrijf(bedrijf){
           <label for="Bedrijfsnaam">Bedrijfsnaam:</label><br>
           <input type="text" id="bedrijfsnaam" name="bedrijfsnaam" value="${bedrijf?.bedrijfsnaam || ''}"><br>
 
+          <label for="sector">Sector: (Selecteer de belangrijkste.)</label><br>
+          <select id="sector" name="sector">
+            <option value="ICT" ${bedrijf?.sector === 'ICT' ? 'selected' : ''}>ICT</option>
+            <option value="Gezondheidszorg" ${bedrijf?.sector === 'Gezondheidszorg' ? 'selected' : ''}>Gezondheidszorg</option>
+            <option value="Onderwijs" ${bedrijf?.sector === 'Onderwijs' ? 'selected' : ''}>Onderwijs</option>
+            <option value="Logistiek" ${bedrijf?.sector === 'Logistiek' ? 'selected' : ''}>Logistiek</option>
+            <option value="Energie" ${bedrijf?.sector === 'Energie' ? 'selected' : ''}>Energie</option>
+            <option value="Milieu" ${bedrijf?.sector === 'Milieu' ? 'selected' : ''}>Milieu</option>
+            <option value="Wetenschap" ${bedrijf?.sector === 'Wetenschap' ? 'selected' : ''}>Wetenschap</option>
+            <option value="Technologie" ${bedrijf?.sector === 'Technologie' ? 'selected' : ''}>Technologie</option>
+            <option value="Televisie en film" ${bedrijf?.sector === 'Televisie en film' ? 'selected' : ''}>Televisie en film</option>
+            <option value="Mode" ${bedrijf?.sector === 'Mode' ? 'selected' : ''}>Mode</option>
+            <option value="Financiële technologie" ${bedrijf?.sector === 'Financiële technologie' ? 'selected' : ''}>Financiële technologie</option>
+            <option value="Gaming" ${bedrijf?.sector === 'Gaming' ? 'selected' : ''}>Gaming</option>
+            <option value="Financiën" ${bedrijf?.sector === 'Financiën' ? 'selected' : ''}>Financiën</option>
+            <option value="Overheid" ${bedrijf?.sector === 'Overheid' ? 'selected' : ''}>Overheid</option>
+            <option value="Industrie" ${bedrijf?.sector === 'Industrie' ? 'selected' : ''}>Industrie</option>
+            <option value="Retail" ${bedrijf?.sector === 'Retail' ? 'selected' : ''}>Retail</option>
+            <option value="Overig" ${bedrijf?.sector === 'Overig' ? 'selected' : ''}>Overig</option>
+          </select><br>
+
           <h3>Persoonsinformatie</h3>
           <label for="contact">Contactpersoon:</label><br>
           <input type="text" id="contact" name="contact" value="${bedrijf?.contactpersoon || ''}"><br>
@@ -67,6 +88,7 @@ export function renderBedrijf(bedrijf){
     contactpersoon: form.contact.value,
     emailcontactpersoon: form.emailcontact.value,
     email: form.email.value,
+    sector: form.sector.value,
   };  
 
   try {
