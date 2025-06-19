@@ -2,7 +2,9 @@ import { renderStudentenBeheer } from './studentenBeheer.js';
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "./firebase.js";
 
+
 export function renderStudent(student) {
+
   document.getElementById('app').innerHTML = `
     <header id="StudentBeherenHeader">
         <button id="back-btn">←</button>
@@ -62,8 +64,9 @@ export function renderStudent(student) {
                     <label for="achternaam">Achternaam:</label><br>
                     <input type="text" id="achternaam" name="surname" value="${student?.surname || ''}"><br>
 
-                    <label for="telefoon">Telefoonnummer:</label><br>
-                    <input type="tel" id="gsm" name="gsm" value="${student?.gsm || ''}"><br>
+                    <label for="gsm">Telefoonnummer:</label><br>
+                    <span>+32</span>
+                    <input type="tel" id="gsm" name="gsm" maxlength="9" placeholder="(4)41234567" value="${student?.gsm || ''}"><br>
 
                     <h3>Account gegevens</h3>
                     <label for="email">E-mailadres:</label><br>
@@ -85,8 +88,26 @@ export function renderStudent(student) {
 
 
   //info aanpassen
+  function validate() {
+    const userInput = document.getElementById("gsm").value.trim();
+  
+
+    const regx = /\d{8,9}$/;
+
+    if (regx.test(userInput)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   document.querySelector('.beheer-form').addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    if (!validate()) {
+      alert("Ongeldig telefoonnummer. Zorg ervoor dat het begint met +32 en 8 of 9 cijfers bevat.");
+      return;
+    }
 
     const form = e.target;
     const studentId = form.getAttribute('data-id');
@@ -128,5 +149,6 @@ export function renderStudent(student) {
     }
   });
 
+  
 
 }
