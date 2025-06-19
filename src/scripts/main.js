@@ -22,4 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
  document.getElementById('btn-logout').addEventListener('click', () => {
     window.location.href = 'index.html'; 
+   });   
+
+document.querySelector('.pagina-instellingen-knop').addEventListener('click', () => {
+     window.location.href = 'Instellingen.html'; 
    });
+
+
