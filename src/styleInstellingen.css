@@ -20,3 +20,66 @@
 body{
   background-color: #A3EEFF;
 }
+
+
+/* Tweede titel met onderlijning */
+.titel7 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  padding-bottom: 0.4rem;
+  text-decoration: underline;
+  padding-top: 20px;
+}
+
+/* Formulierstijl */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.tijdgroep {
+  display: flex;
+  flex-direction: column;
+}
+
+.tijdgroep label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #444;
+}
+
+.tijdgroep input[type="date"],
+.tijdgroep input[type="time"] {
+  width: 160px;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.tijdgroep input:focus {
+  border-color: #333;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+}
+
+/* Opslaan knop */
+button[type="submit"] {
+  align-self: flex-start;
+  background-color: white;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+button[type="submit"]:hover {
+  background-color: #333;
+  color: white;
+}
