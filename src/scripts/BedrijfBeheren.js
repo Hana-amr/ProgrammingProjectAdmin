@@ -61,8 +61,8 @@ export function renderBedrijf(bedrijf){
           <input type="text" id="emailcontact" name="emailcontact" value="${bedrijf?.emailcontactpersoon || ''}"><br>
 
           <h3>Account gegevens</h3>
-          <label for="email">E-mailadres Bedrijf:</label><br>
-          <input type="email" id="email" name="email" value="${bedrijf?.email || ''}"><br>
+          <label for="email">E-mailadres Bedrijf:)</label><br>
+          <input type="email" id="email" name="email" value="${bedrijf?.email || ''}" readonly><br>
 
           <button type="submit" class="submit">Pas aan</button>
           <button type="button" id="verwijder-bedrijf">Verwijder bedrijf</button>

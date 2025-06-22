@@ -56,7 +56,7 @@ export function renderStudent(student) {
 
                     <h3>Account gegevens</h3>
                     <label for="email">E-mailadres:</label><br>
-                    <input type="email" id="email" name="email" value="${student?.email || ''}"><br>
+                    <input type="email" id="email" name="email" value="${student?.email || ''}" readonly><br>
 
                     <button type="submit" class="submit">Pas aan</button>
                     <button type="button" id="verwijder-student" style="background: red; color: white;">Verwijder student</button>
