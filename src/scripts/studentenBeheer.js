@@ -12,17 +12,6 @@ export async function renderStudentenBeheer() {
     id: doc.id,
     ...doc.data()
   }));
-  //logica voor een tile van een student
-  function renderStudentTiles(students) {
-    const tilesHtml = students.map((student, idx) => `
-      <div class="student-tile" data-student-index="${idx}">
-        <h3>${student.name}</h3>
-        <p>${student.email}</p>
-      </div>
-    `).join('');
-    document.getElementById('studenten-tiles').innerHTML = tilesHtml;
-    addTileClickListeners(students);
-  }
 
   document.getElementById('app').innerHTML = `
     <h1 id='student-titel'>Studenten Beheer</h1>
@@ -42,7 +31,7 @@ export async function renderStudentenBeheer() {
 
   renderStudentTiles(students);
 
-  // Zoekfunctie
+  // Zoekfunctie en filteren van studenten
   document.getElementById('search-student').addEventListener('input', (event) => {
     const searchStudent = event.target.value.toLowerCase();
     const filtered = students.filter(student =>
@@ -54,6 +43,7 @@ export async function renderStudentenBeheer() {
     renderStudentTiles(filtered);
   });
 
+  //Toont de studenten in een tegelvorm met hun index en gegevens
   function renderStudentTiles(students) {
     const tilesHtml = students.map((student, idx) => `
       <div class="student-tile" data-student-index="${idx}">
@@ -67,6 +57,7 @@ export async function renderStudentenBeheer() {
     addTileClickListeners(students);
   }
 
+  //Voegt een click event toe aan elke tegel zodat de student details worden weergegeven
   function addTileClickListeners(students) {
     document.querySelectorAll('.student-tile').forEach(tile => {
       tile.addEventListener('click', () => {

@@ -42,20 +42,6 @@ export function renderStudent(student) {
                  <option value="Postgraduaat Coding (online)" ${student?.opleiding === "Postgraduaat Coding (online)" ? 'selected' : ''}>Postgraduaat Coding (online)</option>
                  <option value="Postgraduaat Toegepaste Artificial Intelligence" ${student?.opleiding === "Postgraduaat Toegepaste Artificial Intelligence" ? 'selected' : ''}>Postgraduaat Toegepaste Artificial Intelligence</option>
              </optgroup>
-            <optgroup label="Koninklijk Conservatorium Brussel">
-                 <option value="Professionele bachelor Musical" ${student?.opleiding === "Professionele bachelor Musical" ? 'selected' : ''}>Professionele bachelor Musical</option>
-                 <option value="Professionele master Musical" ${student?.opleiding === "Professionele master Musical" ? 'selected' : ''}>Professionele master Musical</option>
-                 <option value="Academische bachelor Muziek: Jazz" ${student?.opleiding === "Academische bachelor Muziek: Jazz" ? 'selected' : ''}>Academische bachelor Muziek: Jazz</option>
-                 <option value="Academische master Muziek: Jazz" ${student?.opleiding === "Academische master Muziek: Jazz" ? 'selected' : ''}>Academische master Muziek: Jazz</option>
-             </optgroup>
-            <optgroup label="RITCS">
-                <option value="Academische bachelor Drama: Regie & Schrijven" ${student?.opleiding === "Academische bachelor Drama: Regie & Schrijven" ? 'selected' : ''}>Academische bachelor Drama: Regie & Schrijven</option>
-                <option value="Academische master Drama: Regie & Schrijven" ${student?.opleiding === "Academische master Drama: Regie & Schrijven" ? 'selected' : ''}>Academische master Drama: Regie & Schrijven</option>
-                <option value="Academische bachelor Drama: Acteren" ${student?.opleiding === "Academische bachelor Drama: Acteren" ? 'selected' : ''}>Academische bachelor Drama: Acteren</option>
-                <option value="Academische master Drama: Acteren" ${student?.opleiding === "Academische master Drama: Acteren" ? 'selected' : ''}>Academische master Drama: Acteren</option>
-                <option value="Professionele bachelor Podiumtechnieken" ${student?.opleiding === "Professionele bachelor Podiumtechnieken" ? 'selected' : ''}>Professionele bachelor Podiumtechnieken</option>
-                <option value="Graduaat Podium- & Eventtechnieken" ${student?.opleiding === "Graduaat Podium- & Eventtechnieken" ? 'selected' : ''}>Graduaat Podium- & Eventtechnieken</option>
-            </optgroup>
           </select>
                     <h3>Persoonsinformatie</h3>
                     <label for="voornaam">Voornaam:</label><br>
