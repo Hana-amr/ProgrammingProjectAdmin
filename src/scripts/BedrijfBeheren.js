@@ -1,6 +1,8 @@
 import { renderBedrijvenBeheer } from "./bedrijvenBeheer"
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "./firebase.js";
+import { getAuth, deleteUser } from "firebase/auth";
+
 
 export function renderBedrijf(bedrijf){
     document.getElementById('app').innerHTML = `
@@ -113,6 +115,11 @@ document.getElementById('verwijder-bedrijf').addEventListener('click', async () 
 
   try {
     await deleteDoc(doc(db, "user", bedrijfId));
+    const auth = getAuth();
+    const user = auth.currentUser;
+    if (user && user.uid === bedrijfId) {
+      await deleteUser(user);
+    }
     alert("Bedrijf verwijderd.");
     renderBedrijvenBeheer(); // Terug naar overzicht
   } catch (error) {
