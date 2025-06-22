@@ -36,6 +36,24 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Wachtwoorden komen niet overeen!");
         return;
       }
+
+        function validate() {
+    const userInput = document.getElementById("telefoon").value.trim();
+  
+
+    const regx = /\d{8,9}$/;
+
+    if (regx.test(userInput)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+      if (!validate()) {
+      alert("Ongeldig telefoonnummer. Zorg ervoor dat het begint met +32 en 8 of 9 cijfers bevat.");
+      return;
+    }
       
       submitButton.disabled = true;
       document.getElementById("loadingText").style.display = "inline";
