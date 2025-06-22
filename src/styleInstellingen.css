@@ -15,6 +15,7 @@
      margin: 0;
      font-size: 45px;
      text-align: center;
+     color:black;
   }
 
 body{
@@ -22,64 +23,71 @@ body{
 }
 
 
-/* Tweede titel met onderlijning */
+/* Titel */
 .titel7 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 600;
-  color: #333;
-  padding-bottom: 0.4rem;
+  color: black;
+  margin: 0;
+  text-align: center;
+  padding-top: 50px;
   text-decoration: underline;
-  padding-top: 20px;
+  padding-bottom: 30px;
 }
 
 /* Formulierstijl */
 form {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .tijdgroep {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 300px;
 }
 
 .tijdgroep label {
   font-weight: 600;
-  margin-bottom: 0.3rem;
-  color: #444;
+  margin-bottom: 0.4rem;
+  color: #333;
 }
 
 .tijdgroep input[type="date"],
 .tijdgroep input[type="time"] {
-  width: 160px;
-  padding: 0.35rem 0.5rem;
-  font-size: 0.9rem;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  transition: border-color 0.3s ease;
+  border-radius: 8px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: #fafafa;
 }
 
 .tijdgroep input:focus {
   border-color: #333;
   outline: none;
-  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
 }
 
 /* Opslaan knop */
 button[type="submit"] {
-  align-self: flex-start;
-  background-color: white;
-  color: #333;
+  background-color: black;
+  color: white;
   border: none;
   border-radius: 8px;
-  padding: 0.6rem 1.2rem;
+  padding: 0.7rem 1.5rem;
   font-size: 1rem;
   font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   margin-top: 1rem;
 }
 
 button[type="submit"]:hover {
   background-color: #333;
-  color: white;
 }

@@ -120,9 +120,16 @@ header {
 
 .registratie-form input[type="text"],
 .registratie-form input[type="email"],
-.registratie-form input[type="tel"],
 .registratie-form input[type="password"], #opleiding {
   width: 80%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+
+.registratie-form input[type="tel"] {
+  width: 76%;
   padding: 8px;
   margin-bottom: 15px;
   border: 1px solid #999;
