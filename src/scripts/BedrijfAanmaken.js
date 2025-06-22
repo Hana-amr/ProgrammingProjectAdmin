@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
 
       const bedrijfsnaam = document.getElementById("bedrijfsnaam").value.trim();
-      const adres = document.getElementById("adres").value.trim();
+      const sector = document.getElementById("sector").value.trim();
       const voornaam = document.getElementById("voornaam").value.trim();
       const achternaam = document.getElementById("achternaam").value.trim();
       const telefoon = document.getElementById("telefoon").value.trim();
@@ -55,13 +55,12 @@ document.addEventListener("DOMContentLoaded", () => {
         await setDoc(doc(db, "user", uid), {
           bedrijfs_id: uid,
           bedrijfsnaam: bedrijfsnaam,
-          adres: adres,
           contactpersoon: `${voornaam} ${achternaam}`,
           email: email,
           emailcontactpersoon: email,
           gsm: telefoon,
           logoURL: logoURL || "",
-          sector: [],
+          sector: sector,
           websiteURL: "",
           bio: "",
           favorietenstudenten: [],

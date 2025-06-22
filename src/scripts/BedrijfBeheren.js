@@ -37,6 +37,7 @@ export function renderBedrijf(bedrijf){
             <option value="Onderwijs" ${bedrijf?.sector === 'Onderwijs' ? 'selected' : ''}>Onderwijs</option>
             <option value="Logistiek" ${bedrijf?.sector === 'Logistiek' ? 'selected' : ''}>Logistiek</option>
             <option value="Energie" ${bedrijf?.sector === 'Energie' ? 'selected' : ''}>Energie</option>
+            <option value="Telecommunicatie" ${bedrijf?.sector === 'Telecommunicatie' ? 'selected' : ''}>Telecommunicatie</option>
             <option value="Milieu" ${bedrijf?.sector === 'Milieu' ? 'selected' : ''}>Milieu</option>
             <option value="Wetenschap" ${bedrijf?.sector === 'Wetenschap' ? 'selected' : ''}>Wetenschap</option>
             <option value="Technologie" ${bedrijf?.sector === 'Technologie' ? 'selected' : ''}>Technologie</option>
@@ -45,6 +46,7 @@ export function renderBedrijf(bedrijf){
             <option value="Financiële technologie" ${bedrijf?.sector === 'Financiële technologie' ? 'selected' : ''}>Financiële technologie</option>
             <option value="Gaming" ${bedrijf?.sector === 'Gaming' ? 'selected' : ''}>Gaming</option>
             <option value="Financiën" ${bedrijf?.sector === 'Financiën' ? 'selected' : ''}>Financiën</option>
+            <option value="Consultancy" ${bedrijf?.sector === 'Consultancy' ? 'selected' : ''}>Consultancy</option>
             <option value="Overheid" ${bedrijf?.sector === 'Overheid' ? 'selected' : ''}>Overheid</option>
             <option value="Industrie" ${bedrijf?.sector === 'Industrie' ? 'selected' : ''}>Industrie</option>
             <option value="Retail" ${bedrijf?.sector === 'Retail' ? 'selected' : ''}>Retail</option>
