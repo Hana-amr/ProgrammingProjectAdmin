@@ -46,7 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const bedrijfsnaam = document.getElementById("bedrijfsnaam").value.trim();
-      const sector = document.getElementById("sector").value.trim();
+      const sectorSelect = document.getElementById("sector");
+      const selectedOptions = Array.from(sectorSelect.selectedOptions);
+      const sector = selectedOptions.map(option => option.value);
       const voornaam = document.getElementById("voornaam").value.trim();
       const achternaam = document.getElementById("achternaam").value.trim();
       const telefoon = document.getElementById("telefoon").value.trim();
