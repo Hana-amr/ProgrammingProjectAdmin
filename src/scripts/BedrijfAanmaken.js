@@ -18,9 +18,32 @@ document.addEventListener("DOMContentLoaded", () => {
   if (fotoInput) fotoInput.addEventListener("change", previewFoto);
   if (deleteFotoBtn) deleteFotoBtn.addEventListener("click", deleteFoto);
 
+
+  // Formulier validatie voor telefoonnummer
+  // Zorg ervoor dat het telefoonnummer begint met +32 en 8 of 9 cijfers
+    function validate() {
+    const userInput = document.getElementById("telefoon").value.trim();
+  
+
+    const regx = /\d{8,9}$/;
+
+    if (regx.test(userInput)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+
   if (form) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+
+      // Validatie telefoonnummer
+      if (!validate()) {
+        alert("Ongeldig telefoonnummer. Zorg ervoor dat het begint met +32 en 8 of 9 cijfers bevat.");
+        return;
+      }
 
       const bedrijfsnaam = document.getElementById("bedrijfsnaam").value.trim();
       const sector = document.getElementById("sector").value.trim();
