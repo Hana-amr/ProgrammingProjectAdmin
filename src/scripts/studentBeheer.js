@@ -1,6 +1,7 @@
 import { renderStudentenBeheer } from './studentenBeheer.js';
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "./firebase.js";
+import { getAuth, deleteUser } from "firebase/auth";
 
 
 export function renderStudent(student) {
@@ -128,6 +129,11 @@ export function renderStudent(student) {
 
     try {
       await deleteDoc(doc(db, "user", studentId));
+      const auth = getAuth();
+      const user = auth.currentUser;
+      if (user && user.uid === studentId) {
+        await deleteUser(user);
+      }
       alert("Student verwijderd.");
       renderStudentenBeheer(); // Terug naar overzicht
     } catch (error) {
