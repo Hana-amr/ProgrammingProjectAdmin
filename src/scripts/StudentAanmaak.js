@@ -79,10 +79,11 @@ document.addEventListener("DOMContentLoaded", () => {
           opleiding: opleiding,
           email: email,
           pictureURL: pictureURL || "",
-          favorietenBedrijven: [""],
+          favorieteBedrijven: [""],
           registraties: [""],
           deelinfo: true,
-          role: "student"
+          role: "student",
+          bio: "",
         });
 
         alert("Student succesvol geregistreerd!");
