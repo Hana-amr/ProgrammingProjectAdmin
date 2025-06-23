@@ -89,7 +89,8 @@ document.addEventListener("DOMContentLoaded", () => {
           websiteURL: "",
           bio: "",
           favorietenstudenten: [],
-          role: "bedrijf"
+          role: "bedrijf",
+          locatie: ""
         });
 
         alert("Bedrijf succesvol geregistreerd!");
