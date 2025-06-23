@@ -346,7 +346,6 @@
 
 .beheer-form input[type="text"],
 .beheer-form input[type="email"],
-.beheer-form input[type="tel"],
 .beheer-form input[type="password"], #opleiding{
   width: 85%;
   padding: 8px;
@@ -355,6 +354,14 @@
   border-radius: 4px;
 }
 
+
+.beheer-form input[type="tel"]{
+  width: 81%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
 /* Submit button */
 button.submit {
   background-color: #A3EEFF;
